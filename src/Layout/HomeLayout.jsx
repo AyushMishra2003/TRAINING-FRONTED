@@ -7,14 +7,12 @@ import Footer from '../Component/Footer';
 // import { logout } from '../Redux/Slices/AuthSlice';
 function HomeLayout({ children }) {
 
-    // const dispatch = useDispatch();
-    // const navigate = useNavigate();
+    const dispatch=useDispatch()
+    const navigate=useNavigate()
 
-    // // for checking if user is logged in
-    // const isLoggedIn = useSelector((state) => state?.auth?.isLoggedIn);
+    const isLoggedIn=useSelector((state)=>state?.auth?.isLoggedIn)
+    const role=useSelector((state)=>state?.auth?.role)
 
-    // for displaying the options acc to role
-    // const role = useSelector((state) => state?.auth?.role);
 
     function changeWidth() {
         const drawerSide = document.getElementsByClassName("drawer-side");
@@ -29,13 +27,13 @@ function HomeLayout({ children }) {
         drawerSide[0].style.width = '0';
     }
 
-    // async function handleLogout(e) {
-    //     e.preventDefault();
+    async function handleLogout(e) {
+        e.preventDefault();
 
-    //     const res = await dispatch(logout());
-    //     if(res?.payload?.success)
-    //     navigate("/");
-    // }
+        // const res = await dispatch(logout());
+        // if(res?.payload?.success)
+        navigate("/");
+    }
 
     return (
         <div className="min-h-[90vh] text-black">
@@ -62,43 +60,40 @@ function HomeLayout({ children }) {
                         <li>
                             <Link to="/">Home</Link>
                         </li>
-
-                        {/* {isLoggedIn && role === 'ADMIN' && (
-                            <li>
-                                <Link to="/admin/dashboard"> Admin DashBoard</Link>
-                            </li>
-                        )}
-                        {isLoggedIn && role === 'ADMIN' && (
-                            <li>
-                                <Link to="/course/create"> Create new course</Link>
-                            </li>
-                        )} */}
-
                         <li>
-                            <Link to="/courses">All Courses</Link>
+                            <Link to="/">Contact Us</Link>
                         </li>
-
                         <li>
-                            <Link to="/contact">Contact Us</Link>
+                            <Link to="/">About Us</Link>
                         </li>
-
                         <li>
-                            <Link to="/about">About Us</Link>
+                            <Link to="/">All courses</Link>
                         </li>
+                         
+                       {isLoggedIn && role=='ADMIN' &&(
+                          <li>
+                             <Link to={"/admin/dashboard"}Admin DashBoard></Link>
+                          </li>
+                       )}
+                         {isLoggedIn && role=='ADMIN' &&(
+                          <li>
+                             <Link to={"/admin/createCourse"}Create Course></Link>
+                          </li>
+                       )}
 
-                        {/* {!isLoggedIn && (
+                         {!isLoggedIn && (
                             <li className="absolute bottom-4 w-[90%]">
-                                <div className="flex items-center justify-center w-full">
-                                    <button className='w-full px-4 py-1 font-semibold rounded-md btn-primary'>
-                                        <Link to="/login">Login</Link>
+                                <div className="flex items-center justify-center w-full text-black">
+                                    <button className='w-full px-4 py-1 font-semibold bg-green-700 rounded-md btn-primary'>
+                                        <Link to="/login" className='text-black'>Login</Link>
                                     </button>
-                                    <button className='w-full px-4 py-1 font-semibold rounded-md btn-secondary'>
+                                    <button className='w-full px-4 py-1 font-semibold text-black bg-green-700 rounded-md btn-secondary'>
                                         <Link to="/signup">Signup</Link>
                                     </button>
                                 </div>
                             </li>
-                        )} */}
-{/* 
+                        )} 
+
                         {isLoggedIn && (
                             <li className="absolute bottom-4 w-[90%]">
                                 <div className="flex items-center justify-center w-full">
@@ -110,7 +105,7 @@ function HomeLayout({ children }) {
                                     </button>
                                 </div>
                             </li>
-                        )} */}
+                        )}
                     </ul>
                 </div>
             </div>
