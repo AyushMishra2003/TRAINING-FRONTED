@@ -10,10 +10,6 @@ function HomeLayout({ children }) {
     const dispatch=useDispatch()
     const navigate=useNavigate()
 
-    const isLoggedIn=useSelector((state)=>state?.auth?.isLoggedIn)
-    const role=useSelector((state)=>state?.auth?.role)
-
-
     function changeWidth() {
         const drawerSide = document.getElementsByClassName("drawer-side");
         drawerSide[0].style.width = 'auto';
@@ -64,7 +60,7 @@ function HomeLayout({ children }) {
                             <Link to="/">Contact Us</Link>
                         </li>
                         <li>
-                            <Link to="/">About Us</Link>
+                            <Link to="/about">About Us</Link>
                         </li>
                         <li>
                             <Link to="/">All courses</Link>

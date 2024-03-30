@@ -16,7 +16,7 @@ function HomePage() {
                         </span>
                     </h1> */}
                     {/* <h1 className="text-5xl font-semibold">Find out best Framing Training Course</h1> */}
-                    <h1 className="text-5xl font-semibold">Find Out best  <span className='font-bold text-green-700'>Framing Training Course</span>     </h1>
+                    <h1 className="text-5xl font-semibold">Find Out best  <span className='font-bold text-green-700'>Farming Training Course</span>     </h1>
                     <p className="text-xl text-black">
                         We have a large library of courses taught by highly skilled and qualified faculties at a very affordable cost.
                     </p>
