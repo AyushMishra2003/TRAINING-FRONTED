@@ -4,11 +4,16 @@ import { useDispatch, useSelector } from 'react-redux';
 import { Link, useNavigate } from 'react-router-dom';
 
 import Footer from '../Component/Footer';
+import { logout } from '../Redux/Slices/AuthSlice';
 // import { logout } from '../Redux/Slices/AuthSlice';
 function HomeLayout({ children }) {
 
     const dispatch=useDispatch()
     const navigate=useNavigate()
+
+    const isLoggedIn=useSelector((state)=>state?.auth?.isLoggedIn)
+    const role=useSelector((state)=>state?.auth?.role)
+
 
     function changeWidth() {
         const drawerSide = document.getElementsByClassName("drawer-side");
@@ -26,8 +31,8 @@ function HomeLayout({ children }) {
     async function handleLogout(e) {
         e.preventDefault();
 
-        // const res = await dispatch(logout());
-        // if(res?.payload?.success)
+        const res = await dispatch(logout());
+        if(res?.payload?.success)
         navigate("/");
     }
 
@@ -68,22 +73,22 @@ function HomeLayout({ children }) {
                          
                        {isLoggedIn && role=='ADMIN' &&(
                           <li>
-                             <Link to={"/admin/dashboard"}Admin DashBoard></Link>
+                             <Link to={"/admin/dashboard"}>Admin DashBoard</Link>
                           </li>
                        )}
                          {isLoggedIn && role=='ADMIN' &&(
                           <li>
-                             <Link to={"/admin/createCourse"}Create Course></Link>
+                             <Link to={"/admin/createCourse"}>Create Course</Link>
                           </li>
                        )}
 
                          {!isLoggedIn && (
                             <li className="absolute bottom-4 w-[90%]">
                                 <div className="flex items-center justify-center w-full text-black">
-                                    <button className='w-full px-4 py-1 font-semibold bg-green-700 rounded-md btn-primary'>
+                                    <button className='w-full px-4 py-1 font-semibold bg-green-700 rounded-md '>
                                         <Link to="/login" className='text-black'>Login</Link>
                                     </button>
-                                    <button className='w-full px-4 py-1 font-semibold text-black bg-green-700 rounded-md btn-secondary'>
+                                    <button className='w-full px-4 py-1 font-semibold text-black bg-green-700 rounded-md'>
                                         <Link to="/signup">Signup</Link>
                                     </button>
                                 </div>
@@ -93,10 +98,10 @@ function HomeLayout({ children }) {
                         {isLoggedIn && (
                             <li className="absolute bottom-4 w-[90%]">
                                 <div className="flex items-center justify-center w-full">
-                                    <button className='w-full px-4 py-1 font-semibold rounded-md btn-primary'>
+                                    <button className='w-full px-4 py-1 font-semibold text-black rounded-md hover:bg-green-700'>
                                         <Link to="/user/profile">Profile</Link>
                                     </button>
-                                    <button className='w-full px-4 py-1 font-semibold rounded-md btn-secondary'>
+                                    <button className='w-full px-4 py-1 font-semibold text-black rounded-md hover:bg-green-700'>
                                         <Link onClick={handleLogout}>Logout</Link>
                                     </button>
                                 </div>

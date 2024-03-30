@@ -73,12 +73,8 @@ const SignUp = () => {
     formData.append("email",signupData.email)
     formData.append("password",signupData.password)
     formData.append("avatar",signupData.avatar)
-    // const userdata={
-    //     "fullName":signupData.fullName,
-    //     "email":signupData.email,
-    //    "password":signupData.password,
-    //     "avatar":signupData.avatar
-    // }
+
+    
     // dispatch create account action
 
     const response=await dispatch(createAccount(formData))

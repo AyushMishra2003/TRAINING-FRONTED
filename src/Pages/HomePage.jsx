@@ -9,13 +9,6 @@ function HomePage() {
         <HomeLayout>
             <div className="pt-10 text-black flex items-center justify-center gap-10 mx-16 h-[90vh]">
                 <div className="w-1/2 space-y-6">
-                    {/* <h1 className="text-5xl font-semibold">
-                        Find out best
-                        <span className="font-bold text-yellow-500">
-                              Online Courses
-                        </span>
-                    </h1> */}
-                    {/* <h1 className="text-5xl font-semibold">Find out best Framing Training Course</h1> */}
                     <h1 className="text-5xl font-semibold">Find Out best  <span className='font-bold text-green-700'>Farming Training Course</span>     </h1>
                     <p className="text-xl text-black">
                         We have a large library of courses taught by highly skilled and qualified faculties at a very affordable cost.
