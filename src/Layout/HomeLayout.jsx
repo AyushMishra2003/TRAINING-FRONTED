@@ -5,6 +5,7 @@ import { Link, useNavigate } from 'react-router-dom';
 
 import Footer from '../Component/Footer';
 import { logout } from '../Redux/Slices/AuthSlice';
+import { getAllCourse } from '../Redux/Slices/CourseSlice';
 // import { logout } from '../Redux/Slices/AuthSlice';
 function HomeLayout({ children }) {
 
@@ -35,9 +36,21 @@ function HomeLayout({ children }) {
         if(res?.payload?.success)
         navigate("/");
     }
+    
+    async function getCourses(e){
+        console.log("hello ");
+        e.preventDefault()
+        console.log("don1");
+        const res=await dispatch(getAllCourse())
+        console.log("don2");
+        console.log(res?.payload);
+        if(res?.payload?.success){
+        console.log("ho gaya babu");
+        }
+    }
 
     return (
-        <div className="min-h-[90vh] text-black">
+        <div className="min-h-[90vh] text-black ">
             <div className="absolute left-0 z-50 drawer w-fit">
                 <input className="drawer-toggle" id="my-drawer" type="checkbox" />
                 <div className="drawer-content">
@@ -68,7 +81,7 @@ function HomeLayout({ children }) {
                             <Link to="/about">About Us</Link>
                         </li>
                         <li>
-                            <Link to="/">All courses</Link>
+                            <Link to="/courses">All courses</Link>
                         </li>
                          
                        {isLoggedIn && role=='ADMIN' &&(
@@ -99,7 +112,7 @@ function HomeLayout({ children }) {
                             <li className="absolute bottom-4 w-[90%]">
                                 <div className="flex items-center justify-center w-full">
                                     <button className='w-full px-4 py-1 font-semibold text-black rounded-md hover:bg-green-700'>
-                                        <Link to="/user/profile">Profile</Link>
+                                        <Link to="/">Profile</Link>
                                     </button>
                                     <button className='w-full px-4 py-1 font-semibold text-black rounded-md hover:bg-green-700'>
                                         <Link onClick={handleLogout}>Logout</Link>
