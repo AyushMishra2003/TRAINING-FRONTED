@@ -9,6 +9,7 @@ const initialState={
     data:localStorage.getItem('data') || {}
 }
 
+console.log(initialState);
 export const createAccount=createAsyncThunk("/auth/signup",async (data)=>{
     console.log(data);
    try{
@@ -33,7 +34,9 @@ export const createAccount=createAsyncThunk("/auth/signup",async (data)=>{
 
 export const LoginAccount=createAsyncThunk("/auth/login",async(data)=>{
     try{
+        console.log(data);
        const response=axiosInstance.post("user/login",data)
+    //    console.log(data?.da);
        toast.promise(response,{
         loading:"Wait!, Authentication in progress...",
         success:(data)=>{
@@ -41,6 +44,7 @@ export const LoginAccount=createAsyncThunk("/auth/login",async(data)=>{
         },
         error:"Failed to Login"
        })
+    //    console.log(data?.data);
        return (await response).data
     }catch(error){
         toast.error(error?.response?.data?.message)

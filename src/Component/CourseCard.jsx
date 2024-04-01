@@ -6,7 +6,7 @@ const CourseCard = ({obj}) => {
    const navigate=useNavigate()
 
   return (
-    <div  onClick={()=>navigate("/course/description/")}  className='border border-black w-[25rem] flex flex-col rounded-lg'>
+    <div  onClick={()=>navigate('/course/description' ,{state: {...obj}})}  className='border border-black w-[25rem] flex flex-col rounded-lg'>
        <img src={obj.thumbnail.secure_url} alt=""  />
        <div className='flex gap-[0.3rem]'>
           <p className='text-[1rem] font-normal'>Lesson</p>
