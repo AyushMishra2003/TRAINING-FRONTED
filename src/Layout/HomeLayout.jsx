@@ -4,9 +4,9 @@ import { useDispatch, useSelector } from 'react-redux';
 import { Link, useNavigate } from 'react-router-dom';
 
 import Footer from '../Component/Footer';
-import { logout } from '../Redux/Slices/AuthSlice';
+import { logout, me } from '../Redux/Slices/AuthSlice';
 import { getAllCourse } from '../Redux/Slices/CourseSlice';
-// import { logout } from '../Redux/Slices/AuthSlice';
+
 function HomeLayout({ children }) {
 
     const dispatch=useDispatch()
@@ -112,7 +112,7 @@ function HomeLayout({ children }) {
                             <li className="absolute bottom-4 w-[90%]">
                                 <div className="flex items-center justify-center w-full">
                                     <button className='w-full px-4 py-1 font-semibold text-black rounded-md hover:bg-green-700'>
-                                        <Link to="/">Profile</Link>
+                                        <Link to="/viewprofile">Profile</Link>
                                     </button>
                                     <button className='w-full px-4 py-1 font-semibold text-black rounded-md hover:bg-green-700'>
                                         <Link onClick={handleLogout}>Logout</Link>

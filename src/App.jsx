@@ -25,7 +25,7 @@ const App = () => {
         <Route path='/denied' element={<Denied/>}></Route>
         <Route path='/login' element={<Login/>}></Route>
         <Route path='/courses' element={<CourseList/>}></Route>
-        <Route path='/profile' element={<UserProfile/>}></Route>
+        <Route path='/viewprofile' element={<UserProfile/>}></Route>
         <Route path='/course/description' element={<CourseDescription/>}></Route>
         <Route  element={<RequireAuth allowedRoles={["ADMIN"]}  />}>
            <Route path='/course/create' element={<CreateCourse/>}/>
