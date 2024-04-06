@@ -24,7 +24,7 @@ export const createAccount=createAsyncThunk("/auth/signup",async (data)=>{
         success:(data)=>{
         //  isLoggedIn(true)   
          return data?.data?.message
-        },
+        }, 
         // success:isLoggedIn(true),
         error:"Failed to Create Account"
      })

@@ -1,11 +1,13 @@
 import React, { useEffect } from 'react'
-import { useLocation } from 'react-router-dom'
+import { Navigate, useLocation, useNavigate } from 'react-router-dom'
 import HomeLayout from '../../Layout/HomeLayout'
 import { useSelector } from 'react-redux'
 
 const CourseDescription = () => {
    
    const {state}=useLocation()
+   const navigate=useNavigate()
+
    const {role,data}=useSelector((state)=>state.auth)
    
 
@@ -29,7 +31,7 @@ const CourseDescription = () => {
                     <p className='text-[1.5rem] text-white'>{state?.createdBy}</p>
                   </div>  
                  {
-                     role==="ADMIN" || data?.subscription?.status==="ACTIVE"?<button className=' p-[0.2rem] px-[2rem] text-white bg-yellow-600'>Watch Lectures</button>:<button className=' p-[0.2rem] px-[2rem] text-white bg-yellow-600'>Subscribe</button>
+                     role==="ADMIN" || data?.subscription?.status==="ACTIVE"?<button className=' p-[0.2rem] px-[2rem] text-white bg-yellow-600'>Watch Lectures</button>:<button onClick={()=>navigate("/checkout")}  className=' p-[0.2rem] px-[2rem] text-white bg-yellow-600'>Subscribe</button>
                  }
            </div>
            <div className='text-white  flex flex-col gap-[2rem] '>
