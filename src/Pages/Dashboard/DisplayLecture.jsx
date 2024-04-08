@@ -43,7 +43,7 @@ const DisplayLecture = () => {
      <div className='flex flex-col items-center justify-center gap-1 pt-12 pb-2 border border-black min-h-[90vh]'>
          <h1>i am display lecture</h1>
          <p className='text-xl font-semibold text-center text-yellow-500'>Course Name:{state.title}</p>
-      {lectures && lectures.length>0 && <div className='flex justify-center w-full gap-10'>
+       <div className='flex justify-center w-full gap-10'>
             {/* left section for video playing */}
             <div className='w-[30rem] p-[2rem] rounded-lg border border-black'>
               <video src={state && lectures[currentVideo]?.lecture?.secure_url} 
@@ -82,7 +82,7 @@ const DisplayLecture = () => {
                 }
                </ul>
              </div>
-         </div>}
+         </div>
     </div>
 
     </HomeLayout>

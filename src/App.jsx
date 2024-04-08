@@ -12,12 +12,11 @@ import CreateCourse from './Pages/Course/CreateCourse'
 import UserProfile from './Pages/UserProfile'
 import Check from './Pages/Payement/Check'
 import DisplayLecture from './Pages/Dashboard/DisplayLecture'
+import AddLecture from './Pages/Dashboard/AddLecture'
 
 
 const App = () => {
-  //  const dispatch=useDispatch()
-  //  const actions=bindActionCreators({addTodo,deleteTodo,editTodo,finishTodo},dispatch)
-  //  console.log(actions);
+
   return (
     <div>
       <Routes>
@@ -34,8 +33,11 @@ const App = () => {
            <Route path='/checkout' element={<Check/>}/>
            <Route path='/course/displaylecture' element={<DisplayLecture/>}/>
         </Route>
-      
+        <Route  element={<RequireAuth allowedRoles={["ADMIN"]}  />}>
+          <Route path='/course/addLecture' element={<AddLecture/>}/>
+        </Route>  
       </Routes>
+
     </div>
   )
 }
