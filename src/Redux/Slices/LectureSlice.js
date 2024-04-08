@@ -13,6 +13,7 @@ export  const getCourseLectures=createAsyncThunk("/course/lecture/get",async(cid
         success:"Lectures fetched sucessfully",
         error:"Failed to load the lectures"
        })
+       console.log(response);
        return (await response).data
     }catch(error){
         toast.error(error?.response?.data?.message)
@@ -40,20 +41,21 @@ export  const addCourseLecture=createAsyncThunk("/course/lecture/add",async(data
     }
 })
 
-export  const deleteCourseLecture=createAsyncThunk("/course/lecture/delete",async(data)=>{
+export  const deleteCourseLecture=createAsyncThunk("/courses/remove/delete",async(data)=>{
     try{
         // const formData=new FormData()
         // formData.append("lecture",data.lecture)
         // formData.append("title",data.title)
         // formData.append("description",data.description)
         
-
-       const response=axiosInstance.delete(`/courses?courseId=${data.courseId}&lectureId=${data.lectureId}`)
+       console.log("yaha p aaya hu");
+       const response=axiosInstance.delete(`/courses/remove/lecture/${data.courseId}/${data.lectureId}`)
        toast.promise(response,{
         loading:"deleting course lectures",
         success:"Lecture delete sucessfully",
         error:"Failed to delete the lectures"
        })
+       console.log(await response);
        return (await response).data
     }catch(error){
         toast.error(error?.response?.data?.message)
@@ -68,7 +70,9 @@ const lectureSlice=createSlice({
     reducers:{},
     extraReducers:(builder)=>{
         builder.addCase(getCourseLectures.fulfilled,(state,action)=>{
+            console.log(action);
             state.lectures=action?.payload?.lectures
+            console.log(state.lectures);
         })
         .addCase(addCourseLecture.fulfilled,(state,action)=>{
             state.lectures=action?.payload?.course?.lectures          

@@ -6,10 +6,12 @@ import { useSelector } from 'react-redux'
 const CourseDescription = () => {
    
    const {state}=useLocation()
+   console.log(state._id);
    const navigate=useNavigate()
 
-   const {role,data}=useSelector((state)=>state.auth)
-   
+   const {role,data,profileData}=useSelector((state)=>state.auth)
+  //  console.log(data);
+  //  console.log(profileData);
 
    useEffect(()=>{
        console.log(state);
@@ -30,8 +32,11 @@ const CourseDescription = () => {
                     <p className='text-[1.5rem] text-yellow-600'>Instructor:</p>
                     <p className='text-[1.5rem] text-white'>{state?.createdBy}</p>
                   </div>  
-                 {
-                     role==="ADMIN" || data?.subscription?.status==="ACTIVE"?<button className=' p-[0.2rem] px-[2rem] text-white bg-yellow-600'>Watch Lectures</button>:<button onClick={()=>navigate("/checkout")}  className=' p-[0.2rem] px-[2rem] text-white bg-yellow-600'>Subscribe</button>
+                 {/* {
+                     role==="ADMIN" || data?.subscription?.status==="ACTIVE"?<button className=' p-[0.2rem] px-[2rem] text-white bg-yellow-600' onClick={()=>navigate("/course/displaylecture",{state:{...state}})} >Watch Lectures</button>:<button onClick={()=>navigate("/checkout")}  className=' p-[0.2rem] px-[2rem] text-white bg-yellow-600'>Subscribe</button>
+                 } */}
+                    {
+                     role==="ADMIN" || 1?<button className=' p-[0.2rem] px-[2rem] text-white bg-yellow-600' onClick={()=>navigate("/course/displaylecture",{state:{...state}})} >Watch Lectures</button>:<button onClick={()=>navigate("/checkout")}  className=' p-[0.2rem] px-[2rem] text-white bg-yellow-600'>Subscribe</button>
                  }
            </div>
            <div className='text-white  flex flex-col gap-[2rem] '>

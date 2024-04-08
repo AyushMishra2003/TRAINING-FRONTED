@@ -11,6 +11,7 @@ import RequireAuth from './Auth/RequireAuth'
 import CreateCourse from './Pages/Course/CreateCourse'
 import UserProfile from './Pages/UserProfile'
 import Check from './Pages/Payement/Check'
+import DisplayLecture from './Pages/Dashboard/DisplayLecture'
 
 
 const App = () => {
@@ -31,6 +32,7 @@ const App = () => {
         <Route  element={<RequireAuth allowedRoles={["ADMIN","USER"]}  />}>
            <Route path='/course/create' element={<CreateCourse/>}/>
            <Route path='/checkout' element={<Check/>}/>
+           <Route path='/course/displaylecture' element={<DisplayLecture/>}/>
         </Route>
       
       </Routes>
