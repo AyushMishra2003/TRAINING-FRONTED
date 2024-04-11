@@ -48,7 +48,6 @@ export  const deleteCourseLecture=createAsyncThunk("/courses/remove/delete",asyn
         // formData.append("title",data.title)
         // formData.append("description",data.description)
         
-       console.log("yaha p aaya hu");
        const response=axiosInstance.delete(`/courses/remove/lecture/${data.courseId}/${data.lectureId}`)
        toast.promise(response,{
         loading:"deleting course lectures",

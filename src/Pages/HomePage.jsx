@@ -21,7 +21,7 @@ function HomePage() {
                             </button>
                         </Link>
 
-                        <Link to="/contact">
+                        <Link to="/courses">
                             <button className="px-5 py-3 text-lg font-semibold text-black transition-all duration-300 ease-in-out border border-green-500 rounded-md cursor-pointer hover:bg-green-600">
                                 Watch Demo
                             </button>

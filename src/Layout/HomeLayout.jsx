@@ -6,6 +6,7 @@ import { Link, useNavigate } from 'react-router-dom';
 import Footer from '../Component/Footer';
 import { logout, me } from '../Redux/Slices/AuthSlice';
 import { getAllCourse } from '../Redux/Slices/CourseSlice';
+import logo from '../assets/img/logo.png'
 
 function HomeLayout({ children }) {
 
@@ -51,7 +52,7 @@ function HomeLayout({ children }) {
 
     return (
         <div className="min-h-[90vh] text-black ">
-            <div className="absolute left-0 z-50 drawer w-fit">
+            <div className="absolute left-0 z-50 drawer w-fit lg:hidden">
                 <input className="drawer-toggle" id="my-drawer" type="checkbox" />
                 <div className="drawer-content">
                     <label htmlFor="my-drawer" className="relative cursor-pointer">
@@ -123,12 +124,116 @@ function HomeLayout({ children }) {
                     </ul>
                 </div>
             </div>
+            <div className='flex border border-black p-[1rem] items-center list-none gap-10 justify-between bg-[#1F2937]'>
+                <div className='flex items-center justify-center gap-6 text-[1.2rem] font-semibold text-white'>
+                    <div>
+                        <img src={logo} alt="Logo" className='w-[4rem] h-[4rem] rounded-full' />
+                    </div>
+                <li>
+                     <Link to="/">Home</Link>
+                 </li>
+                        <li>
+                            <Link to="/">Contact Us</Link>
+                        </li>
+                        <li>
+                            <Link to="/about">About Us</Link>
+                        </li>
+                        <li>
+                            <Link to="/courses">All courses</Link>
+                        </li>
+                         
+                       {isLoggedIn && role=='ADMIN' &&(
+                          <li>
+                             <Link to={"/admin/dashboard"}>Admin DashBoard</Link>
+                          </li>
+                       )}
+                         {isLoggedIn && role=='ADMIN' &&(
+                          <li>
+                             <Link to={"/course/create"}>Create Course</Link>
+                          </li>
+                       )}
+            </div>
+                         {!isLoggedIn && (
+                            <li className="">
+                                <div className="flex items-center justify-center w-full gap-3 text-black">
+                                    <button className='w-full px-4 py-1 font-semibold bg-green-700 rounded-md '>
+                                        <Link to="/login" className='text-black'>Login</Link>
+                                    </button>
+                                    <button className='w-full px-4 py-1 font-semibold text-black bg-green-700 rounded-md'>
+                                        <Link to="/signup">Signup</Link>
+                                    </button>
+                                </div>
+                            </li>
+                        )} 
 
+                        {isLoggedIn && (
+                            <li className="">
+                                <div className="flex items-center justify-center w-full gap-3">
+                                    <button className='w-full px-4 py-1 font-semibold text-black bg-green-700 rounded-md'>
+                                        <Link to="/viewprofile">Profile</Link>
+                                    </button>
+                                    <button className='w-full px-4 py-1 font-semibold text-black bg-green-700 rounded-md'>
+                                        <Link onClick={handleLogout}>Logout</Link>
+                                    </button>
+                                </div>
+                            </li>
+                        )}      
+            </div>
+            {/* <div className='flex items-center border border-black'>
+                <div>
+                    logo
+                </div>
+                <div>
+                <Link>Home</Link>
+                <Link>Contact Us</Link>
+                <Link>About us</Link>
+                <Link>Home</Link>
+                <Link>All Courses</Link>
+                {isLoggedIn && role=='ADMIN' &&(
+                          <li>
+                             <Link to={"/admin/dashboard"}>Admin DashBoard</Link>
+                          </li>
+                       )}
+                         {isLoggedIn && role=='ADMIN' &&(
+                          <li>
+                             <Link to={"/course/create"}>Create Course</Link>
+                          </li>
+                       )}
+                </div>
+
+                <div>
+                {!isLoggedIn && (
+                            <li className="absolute bottom-4 w-[90%]">
+                                <div className="flex items-center justify-center w-full text-black">
+                                    <button className='w-full px-4 py-1 font-semibold bg-green-700 rounded-md '>
+                                        <Link to="/login" className='text-black'>Login</Link>
+                                    </button>
+                                    <button className='w-full px-4 py-1 font-semibold text-black bg-green-700 rounded-md'>
+                                        <Link to="/signup">Signup</Link>
+                                    </button>
+                                </div>
+                            </li>
+                        )} 
+                    {isLoggedIn && (
+                            <li className="absolute bottom-4 w-[90%]">
+                                <div className="flex items-center justify-center w-full">
+                                    <button className='w-full px-4 py-1 font-semibold text-black rounded-md hover:bg-green-700'>
+                                        <Link to="/viewprofile">Profile</Link>
+                                    </button>
+                                    <button className='w-full px-4 py-1 font-semibold text-black rounded-md hover:bg-green-700'>
+                                        <Link onClick={handleLogout}>Logout</Link>
+                                    </button>
+                                </div>
+                            </li>
+                        )}      
+                </div>
+              
+            </div> */}
             { children }
-
+          
             <Footer />
         </div>
-    );
+    )
 }
 
 export default HomeLayout;

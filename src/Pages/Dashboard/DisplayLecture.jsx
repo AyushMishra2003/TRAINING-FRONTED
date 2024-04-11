@@ -17,8 +17,8 @@ const DisplayLecture = () => {
    const [currentVideo,setCurrentVideo]=useState(0)
 
   //  console.log(role);
-   console.log(lectures);
-   console.log(state);
+  //  console.log(lectures);
+  //  console.log(state);
 
   async function onLectureDelete(courseId,lectureId){
     console.log("hyy i am on lecture delete");
@@ -40,12 +40,11 @@ const DisplayLecture = () => {
   //  getLecture()
   return (
     <HomeLayout>
-     <div className='flex flex-col items-center justify-center gap-1 pt-12 pb-2 border border-black min-h-[90vh]'>
-         <h1>i am display lecture</h1>
-         <p className='text-xl font-semibold text-center text-yellow-500'>Course Name:{state.title}</p>
+     <div className='flex flex-col items-center justify-center gap-1 pt-12 pb-2 min-h-[90vh]'>
+         <p className='text-[1.4rem] font-semibold text-center text-[#F78F3C]'>Course Name:{state.title}</p>
        <div className='flex justify-center w-full gap-10'>
             {/* left section for video playing */}
-            <div className='w-[30rem] p-[2rem] rounded-lg border border-black'>
+            <div className='w-[50rem] p-[0.1rem] rounded-lg flex flex-col gap-3'>
               <video src={state && lectures[currentVideo]?.lecture?.secure_url} 
               className='object-fill w-full rounded-tl-lg rounded-tr-lg' 
               controls
@@ -55,27 +54,27 @@ const DisplayLecture = () => {
               >  
              </video>   
              <div>
-                <h1>{lectures && lectures[currentVideo]?.title}</h1>
-                <p>{lectures && lectures[currentVideo]?.description}</p>
+                <h1 className='text-[1.5rem] font-medium '>{lectures && lectures[currentVideo]?.title}</h1>
+                <p className='text-[1rem] font-medium font-400'>{lectures && lectures[currentVideo]?.description}</p>
              </div>
             </div>
             {/* right section for displying list of lectures */}
-             <div>
+             <div className=''>
                <ul className='w-[28rem] p-2 rounded-lg gap-1 border border-black'>
                 <li>
-                  <p>Lectures list:</p>
-                  {role==="ADMIN" && <button className='p-[0.5rem] px-[2rem] border border-black' onClick={()=>navigate("/course/addLecture",{state:{...state}})}>Add new lecture</button>}
+                  <p className='text-[1.3rem] font-bold '>Lectures list:</p>
+                  {role==="ADMIN" && <button className='p-[0.5rem] px-[1.6rem] rounded-md text-white text-[1.2rem] font-semibold bg-red-400' onClick={()=>navigate("/course/addLecture",{state:{...state}})}>Add new lecture</button>}
                 </li>
                 {lectures && 
                   lectures.map((lecture,index)=>{
                     return(
                       <li key={lecture._id} >
-                         <p className='cursor-pointer' onClick={()=>setCurrentVideo(index)}>
-                           <span>
+                         <p className='cursor-pointer text-[1rem] font-semibold' onClick={()=>setCurrentVideo(index)}>
+                           <span className='text-[1rem] font-semibold tetxt-black'>
                             {" "}lecture {index+1}: {lecture.title}
                            </span>
                          </p> 
-                         {role==="ADMIN" && <button onClick={()=>onLectureDelete(state._id,lecture?._id)}   className='p-[0.5rem] px-[1rem] border border-black'>Delete Lecture</button>}
+                         {role==="ADMIN" && <button onClick={()=>onLectureDelete(state._id,lecture?._id)}   className='p-[0.5rem] px-[1.6rem] rounded-md text-white text-[1.2rem] font-semibold bg-green-400'>Delete Lecture</button>}
                       </li>
                     )
                   })

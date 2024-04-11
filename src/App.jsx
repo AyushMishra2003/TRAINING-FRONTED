@@ -13,6 +13,9 @@ import UserProfile from './Pages/UserProfile'
 import Check from './Pages/Payement/Check'
 import DisplayLecture from './Pages/Dashboard/DisplayLecture'
 import AddLecture from './Pages/Dashboard/AddLecture'
+import DisplayDemoVideo from './Pages/Dashboard/DisplayDemoVideo'
+import DeleteCourse from './Pages/Dashboard/DeleteCourse'
+import AdminDashboard from './Pages/Dashboard/AdminDashboard'
 
 
 const App = () => {
@@ -32,9 +35,12 @@ const App = () => {
            <Route path='/course/create' element={<CreateCourse/>}/>
            <Route path='/checkout' element={<Check/>}/>
            <Route path='/course/displaylecture' element={<DisplayLecture/>}/>
+           <Route path='/course/demoVideo' element={<DisplayDemoVideo/>}/>
         </Route>
         <Route  element={<RequireAuth allowedRoles={["ADMIN"]}  />}>
           <Route path='/course/addLecture' element={<AddLecture/>}/>
+          <Route path='/course/deleteCourse' element={<DeleteCourse/>}/>
+          <Route path='/admin/dashboard' element={<AdminDashboard/>}/>
         </Route>  
       </Routes>
 
