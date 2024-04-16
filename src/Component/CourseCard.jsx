@@ -7,9 +7,9 @@ const CourseCard = ({obj}) => {
    const navigate=useNavigate()
 
   return (
-    <div  onClick={()=>navigate('/course/description' ,{state: {...obj}})}  className='w-[25rem] flex flex-col rounded-lg border cursor-pointer hover:border border-[#2A254D] pb-1'>
-       <img src={obj.thumbnail.secure_url} alt=""  />
-       <div className='flex flex-col gap-2 p-2'>
+    <div  onClick={()=>navigate('/course/description' ,{state: {...obj}})}  className='w-[25rem] h-[28rem] flex flex-col rounded-lg border cursor-pointer hover:border border-[#2A254D] pb-1'>
+       <img src={obj.thumbnail.secure_url} alt="" className='w-[25rem] h-[10rem] object-cover' />
+       <div className='flex flex-col gap-2 p-2 justify-between'>
           <p className='text-[1.2rem]  text-[#2A254D] font-semibold  '>Course Name:- {obj.category}</p>
           <p className='text-[1.5rem] font-bold '>{obj.title}</p>
           <p className='text-[1.rem] font-normal text-[#838383]'>{obj.description}</p>

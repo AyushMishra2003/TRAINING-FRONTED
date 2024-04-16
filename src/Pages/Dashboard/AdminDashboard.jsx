@@ -12,6 +12,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import { deleteCourse, getAllCourse } from '../../Redux/Slices/CourseSlice';
 import { getPaymentRecord } from '../../Redux/Slices/RazorpaySlice';
+import {getStatsData} from '../../Redux/Slices/StatSlice'
 
 
 ChartJS.register(ArcElement, BarElement, CategoryScale, Legend, LinearScale, Title, Tooltip);
@@ -22,11 +23,14 @@ const AdminDashboard = () => {
    const dispatch=useDispatch()
    const navigate=useNavigate()
 
-//    const {allUsersCount, subscribedCount}=useSelector((state)=>(state.stats))
-   const allUsersCount=2
-   const subscribedCount=5
+   const {usersCount, subscribedUser}=useSelector((state)=>{
+      console.log(state);
+      return (state.stats)
+   })
+   // const allUsersCount=2
+   // const subscribedCount=5
 //    console.log(allUsersCount, subscribedCount);
-//   console.log(allUsersCount,subscribedCount);
+//   console.log(usersCount,subscribedUser);
 
    const {allPayments,finalMonths,monthlySalesRecord}=useSelector((state)=>state.razorpay)
 //    ye all payement m subscription count hoga usme aayega dyan rakhna
@@ -42,7 +46,7 @@ const AdminDashboard = () => {
     datasets:[
         {
         label:"User Details",
-        data:[allUsersCount,subscribedCount],
+        data:[usersCount,subscribedUser],
         backgroundColor:["yellow","green"],
         borderWidth:1,
         borderColor:["yellow","green"]
@@ -79,7 +83,7 @@ const AdminDashboard = () => {
          async()=>{
             await dispatch(getAllCourse())
             await dispatch(getPaymentRecord())
-            // await dispatch(getStatsData())
+            await dispatch(getStatsData())
          }
     )()
   },[])
@@ -99,14 +103,14 @@ const AdminDashboard = () => {
             <div className='flex items-center gap-4'>
                 <div className='flex  flex-col items-center'>
                     <p className='font-semibold text-xl '>Registred Users</p>
-                    <h3 className='font-bold text-xl'>{allUsersCount}</h3>
+                    <h3 className='font-bold text-xl'>{usersCount}</h3>
                 </div>
                 <FaUsers className='text-yellow-500 text-5xl'/>
             </div>
             <div className='flex items-center gap-4'>
                 <div className='flex  flex-col items-center'>
                     <p className='font-semibold text-xl '>Subscribed Users</p>
-                    <h3 className='font-bold text-xl'>{subscribedCount}</h3>
+                    <h3 className='font-bold text-xl'>{subscribedUser}</h3>
                 </div>
                 <FaUsers className='text-green-500 text-5xl'/>
             </div>

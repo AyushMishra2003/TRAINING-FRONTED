@@ -4,13 +4,13 @@ import axiosInstance from "../../Helper/axiosInstance"
 
 
 const initialState={
-    allUsersCount:0,
-    subscribedCount:0,
+    usersCount:0,
+    subscribedUser:0,
 }
 
-export const getStatsDat=createAsyncThunk("stats/get",async()=>{
+export const getStatsData=createAsyncThunk("stats/get",async()=>{
     try{
-       const response=axiosInstance.get("/admin/stats/users")
+       const response=axiosInstance.get("/admin/stats")
        toast.promise(response,{
         loading:"Getting the stats...",
         success:(data)=>{
@@ -30,9 +30,9 @@ const statSlice=createSlice({
    initialState,
    reducers:{},
    extraReducers:(builder)=>{
-    builder.addCase(getStatsDat.fulfilled,(state,action)=>{
-         state.allUsersCount=action?.payload?.allUsersCount,
-         state.subscribedCount=action?.payload?.subscribedCount
+    builder.addCase(getStatsData.fulfilled,(state,action)=>{
+         state.usersCount=action?.payload?.usersCount,
+         state.subscribedUser=action?.payload?.subscribedUser
     })
    }
 })

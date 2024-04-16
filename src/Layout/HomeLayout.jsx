@@ -63,10 +63,10 @@ function HomeLayout({ children }) {
                         />
                     </label>
                 </div>
-                <div className="w-0 drawer-side">
+                <div className="w-0 drawer-side bg-[#1F2937]">
                     <label htmlFor="my-drawer" className="drawer-overlay">
                     </label>
-                    <ul className="menu p-4 w-48 h-[100%] sm:w-80 bg-base-200 text-base-content relative">
+                    <ul className="menu p-4 w-48 h-[100%] sm:w-80  relative  bg-[#1F2937] text-white">
                         <li className="absolute z-50 w-fit right-2">
                             <button onClick={hideDrawer}>
                                 <AiFillCloseCircle size={24} />
@@ -99,7 +99,7 @@ function HomeLayout({ children }) {
                          {!isLoggedIn && (
                             <li className="absolute bottom-4 w-[90%]">
                                 <div className="flex items-center justify-center w-full text-black">
-                                    <button className='w-full px-4 py-1 font-semibold bg-green-700 rounded-md '>
+                                <button className='w-full px-4 py-1 font-semibold bg-green-700 rounded-md '>
                                         <Link to="/login" className='text-black'>Login</Link>
                                     </button>
                                     <button className='w-full px-4 py-1 font-semibold text-black bg-green-700 rounded-md'>
@@ -112,11 +112,11 @@ function HomeLayout({ children }) {
                         {isLoggedIn && (
                             <li className="absolute bottom-4 w-[90%]">
                                 <div className="flex items-center justify-center w-full">
-                                    <button className='w-full px-4 py-1 font-semibold text-black rounded-md hover:bg-green-700'>
-                                        <Link to="/viewprofile">Profile</Link>
+                                <button className='w-full px-4 py-1 font-semibold bg-green-700 rounded-md '>
+                                        <Link to="/login" className='text-black'>Login</Link>
                                     </button>
-                                    <button className='w-full px-4 py-1 font-semibold text-black rounded-md hover:bg-green-700'>
-                                        <Link onClick={handleLogout}>Logout</Link>
+                                    <button className='w-full px-4 py-1 font-semibold text-black bg-green-700 rounded-md'>
+                                        <Link to="/signup">Signup</Link>
                                     </button>
                                 </div>
                             </li>
@@ -124,7 +124,7 @@ function HomeLayout({ children }) {
                     </ul>
                 </div>
             </div>
-            <div className='flex border border-black p-[1rem] items-center list-none gap-10 justify-between bg-[#1F2937]'>
+            <div className='border border-black p-[1rem] items-center list-none gap-10 justify-between bg-[#1F2937] hidden lg:flex'>
                 <div className='flex items-center justify-center gap-6 text-[1.2rem] font-semibold text-white'>
                     <div>
                         <img src={logo} alt="Logo" className='w-[4rem] h-[4rem] rounded-full' />

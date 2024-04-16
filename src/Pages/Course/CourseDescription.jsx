@@ -65,7 +65,7 @@ const CourseDescription = () => {
                    <p>HiEnglish</p>
                   </div>
                   {
-                     role==="ADMIN" || 1?<button className=' p-[0.4rem] px-[4rem] text-white w-fit bg-[#F57005] font-semibold rounded-lg' onClick={()=>navigate("/course/displaylecture",{state:{...state}})} >Watch Lectures</button>:<button onClick={()=>navigate("/checkout")}  className=' p-[0.2rem] px-[2rem] text-white bg-yellow-600'>Subscribe</button>
+                     role==="ADMIN" || data?.subscription?.status === 'active' ? <button className=' p-[0.4rem] px-[4rem] text-white w-fit bg-[#F57005] font-semibold rounded-lg' onClick={()=>navigate("/course/displaylecture",{state:{...state}})} >Watch Lectures</button>:<button onClick={()=>navigate("/checkout")}  className=' p-[0.2rem] px-[2rem] text-white bg-yellow-600'>Subscribe</button>
                   }
                   {
                     role==="ADMIN" && <button className='p-[0.2rem] px-[3rem] text-white bg-[#F57005] font-semibold rounded-lg' onClick={()=>navigate("/course/deleteCourse",{state:{...state}})}>DELETE COURSE</button>
@@ -74,7 +74,7 @@ const CourseDescription = () => {
                     role==="USER" && <button className='p-[0.2rem] px-[3rem] text-white bg-[#F57005] rounded-md border-none' onClick={()=>navigate("/course/demoVideo",{state:{...state}})}>Demo Video</button>
                   }
            </div>
-        </div>
+        </div> 
       </div>  
     </HomeLayout>
   )

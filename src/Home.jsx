@@ -4,7 +4,7 @@ import HomeLayout from './Layout/HomeLayout'
 
 const Home = () => {
   return (
-    <div>
+    <div className='flex border border-red-500 '>
     {/* <Footer/> */}
     <HomeLayout/>
     </div>
