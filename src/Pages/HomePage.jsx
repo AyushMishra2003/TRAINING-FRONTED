@@ -13,7 +13,7 @@ function HomePage() {
     return (
         <HomeLayout>
             <div className="pt-10 text-black flex flex-col items-center gap-2  lg:gap-0 md:gap-1 bg-[#DEE4FA] min-h-[90vh] w-[100vw] pb-3">
-                <div className="flex flex-col-reverse items-center justify-center gap-[10rem] lg:flex-row">
+                <div className="flex flex-col-reverse items-center justify-center lg:gap-[3rem] xl:gap-[10rem] gap-2 lg:flex-row">
                    <div className="lg:w-[25rem] w-[19rem] sm:w-[36.5rem]  lg:space-y-6 gap-1  md:w-[45rem] pb-1">
                     <h1 className="lg:text-[2rem] font-semibold text-[1.2rem] text-[#2B3543]">Find Out best  <span className='font-bold text-green-700'>Farming Training Course</span>     </h1>
                     <p className="lg:text-xl text-[0.9rem] sm:text-[1.1rem]  text-black">

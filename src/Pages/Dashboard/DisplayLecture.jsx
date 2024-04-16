@@ -41,7 +41,7 @@ const DisplayLecture = () => {
   return (
     <HomeLayout>
      <div className='flex flex-col items-center justify-center gap-1 pt-12 pb-2 min-h-[90vh]'>
-         <p className='text-[1.4rem] font-semibold text-center text-[#F78F3C]'>Course Name:{state.title}</p>
+         {/* <p className='text-[1.4rem] font-semibold text-center text-[#F78F3C]'>Course Name:{state.title}</p> */}
        <div className='flex justify-center w-full gap-10'>
             {/* left section for video playing */}
             <div className='w-[50rem] p-[0.1rem] rounded-lg flex flex-col gap-3'>
@@ -60,7 +60,7 @@ const DisplayLecture = () => {
             </div>
             {/* right section for displying list of lectures */}
              <div className=''>
-               <ul className='w-[28rem] p-2 rounded-lg gap-1 border border-black'>
+               <ul className='w-[28rem] p-2 rounded-lg gap-1 shadow-md'>
                 <li>
                   <p className='text-[1.3rem] font-bold '>Lectures list:</p>
                   {role==="ADMIN" && <button className='p-[0.5rem] px-[1.6rem] rounded-md text-white text-[1.2rem] font-semibold bg-red-400' onClick={()=>navigate("/course/addLecture",{state:{...state}})}>Add new lecture</button>}

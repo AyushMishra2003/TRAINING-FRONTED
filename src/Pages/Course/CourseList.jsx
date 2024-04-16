@@ -24,9 +24,12 @@ const CourseList = () => {
   return(
     <div>
       <HomeLayout>
-         <div className='flex flex-col items-center justify-center gap-1 pt-12 pb-2 border border-black '>
-           <p className='text-center text-[1.5rem] font-normal'>Step in FarmingShip World</p>
-           <p className='text-[3rem] font-bold font-mono '><span className='text-[#2A254D]'>Explore the Courses</span> made by Industry Expert</p>
+         <div className='flex flex-wrap items-center justify-center gap-1 pt-12 pb-2  bg-[#DEE4FA] w-full '>
+          <div className='flex flex-col items-center justify-center  w-[18rem] sm:w-[30rem] lg:w-[40rem]'>
+              <p className='text-center text-[1.5rem] font-normal'>Step in FarwrmingShip World</p>
+             <p className='text-[2rem] font-bold font-mono text-center'><span className='text-[#2A254D]'>Explore the Courses</span> made by Industry Expert</p>
+          </div>
+         
           <div className='flex flex-wrap w-[90rem] justify-center items-center gap-[1.2rem] p-[1.5rem]'> 
              {courseData.map((val)=><CourseCard  obj={val} key={val._id}/>)}
           </div>
