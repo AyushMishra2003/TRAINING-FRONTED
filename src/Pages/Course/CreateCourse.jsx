@@ -74,21 +74,25 @@ const CreateCourse = () => {
 }
   return (
     <HomeLayout>
-            <div className="flex items-center justify-center h-[100vh]">
+            <div className="flex items-center justify-center pt-[2rem]  h-fit">
                 <form
                     onSubmit={onFormSubmit}
-                    className="flex flex-col justify-center gap-5 rounded-lg p-4 text-black w-[700px] my-10 shadow-[0_0_10px_black] relative"
+                    className="flex flex-col justify-center gap-5 rounded-lg md:p-4 p-1  text-black md:w-[700px]  w-[90%] my-10 shadow-[0_0_10px_black] relative "
                 >
-                    
-                    <Link className="absolute text-2xl cursor-pointer top-8 link text-accent">
+                   <div className='flex flex-row items-center gap-2 '>
+
+                     <Link className="text-2xl cursor-pointer link text-accent" onClick={()=>navigate(-1)}>
                         <AiOutlineArrowLeft />
                     </Link>
 
-                    <h1 className="text-2xl font-bold text-center">
+                        <h1 className="text-2xl font-bold text-center">
                         Create New Course
-                    </h1>
+                        </h1>
 
-                    <main className="grid grid-cols-2 gap-x-10">
+                    </div> 
+                  
+
+                    <main className="grid grid-cols-1 sm:grid-cols-2 gap-x-10">
                         <div className="gap-y-6">
                             <div>
                                 <label htmlFor="image_uploads" className="cursor-pointer">
@@ -105,7 +109,7 @@ const CreateCourse = () => {
 
                                 </label>
                                 <input 
-                                    className="hidden"
+                                    className="hidden "
                                     type="file"
                                     id="image_uploads"
                                     accept=".jpg, .jpeg, .png"
@@ -177,14 +181,11 @@ const CreateCourse = () => {
                                     onChange={handleUserInput}
                                 />
                             </div>
-                        </div>
+                        </div> 
                     </main>
-
                     <button type="submit" className="w-full py-2 text-lg font-semibold transition-all duration-300 ease-in-out bg-yellow-600 rounded-sm cursor-pointer hover:bg-yellow-500">
                         Create Course
                     </button>
-
-
                 </form>
             </div>
     </HomeLayout>

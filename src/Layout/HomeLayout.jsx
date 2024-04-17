@@ -51,8 +51,8 @@ function HomeLayout({ children }) {
     }
 
     return (
-        <div className="min-h-[90vh] text-black ">
-            <div className="absolute left-0 z-50 drawer w-fit lg:hidden">
+        <div className="min-h-[90vh] ">
+            <div className="absolute left-0 z-50 w-full bg-[#1F2937]  drawer lg:hidden">
                 <input className="drawer-toggle" id="my-drawer" type="checkbox" />
                 <div className="drawer-content">
                     <label htmlFor="my-drawer" className="relative cursor-pointer">
@@ -123,9 +123,12 @@ function HomeLayout({ children }) {
                         )}
                     </ul>
                 </div>
+               <div>
+                 <p>logo</p>
+               </div>
             </div>
-            <div className='border border-black p-[1rem] items-center list-none gap-10 justify-between bg-[#1F2937] hidden lg:flex'>
-                <div className='flex items-center justify-center gap-6 text-[1.2rem] font-semibold text-white'>
+            <div className='p-[1rem] items-center list-none gap-10 justify-between bg-[#1F2937] hidden lg:flex'>
+                <div className='flex items-center justify-center gap-6 text-[1rem] font-semibold text-white'>
                     <div>
                         <img src={logo} alt="Logo" className='w-[4rem] h-[4rem] rounded-full' />
                     </div>
@@ -133,7 +136,7 @@ function HomeLayout({ children }) {
                      <Link to="/">Home</Link>
                  </li>
                         <li>
-                            <Link to="/">Contact Us</Link>
+                            <Link to="/" >Contact Us</Link>
                         </li>
                         <li>
                             <Link to="/about">About Us</Link>

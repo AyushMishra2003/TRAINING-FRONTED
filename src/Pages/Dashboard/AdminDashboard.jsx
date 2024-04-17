@@ -89,9 +89,9 @@ const AdminDashboard = () => {
   },[])
   return (
     <HomeLayout>
-    <div className='min-h-[90vh] flex  flex-col gap-6 text-black items-center w-[100vw]  justify-center'>
+    <div className='min-h-[90vh]  gap-6 text-black  w-[100vw]   bg-[#DEE4FA] border border-red-500 hidden lg:flex  lg:flex-col lg:items-center lg:justify-center'>
          <h1 className='text-5xl font-semibold text-red-500 '>Admin Dashboard</h1>     
-      <div className=' flex  gap-10 w-[100vw] items-center justify-center'>    
+      <div className=' gap-10 w-[100vw] items-center justify-center  flex '>    
        <div className=''>
          <div className=''>
             {/* pichar */}
@@ -101,18 +101,18 @@ const AdminDashboard = () => {
             </div>
           <div className='flex items-center gap-3'>
             <div className='flex items-center gap-4'>
-                <div className='flex  flex-col items-center'>
-                    <p className='font-semibold text-xl '>Registred Users</p>
-                    <h3 className='font-bold text-xl'>{usersCount}</h3>
+                <div className='flex flex-col items-center'>
+                    <p className='text-xl font-semibold '>Registred Users</p>
+                    <h3 className='text-xl font-bold'>{usersCount}</h3>
                 </div>
-                <FaUsers className='text-yellow-500 text-5xl'/>
+                <FaUsers className='text-5xl text-yellow-500'/>
             </div>
             <div className='flex items-center gap-4'>
-                <div className='flex  flex-col items-center'>
-                    <p className='font-semibold text-xl '>Subscribed Users</p>
-                    <h3 className='font-bold text-xl'>{subscribedUser}</h3>
+                <div className='flex flex-col items-center'>
+                    <p className='text-xl font-semibold '>Subscribed Users</p>
+                    <h3 className='text-xl font-bold'>{subscribedUser}</h3>
                 </div>
-                <FaUsers className='text-green-500 text-5xl'/>
+                <FaUsers className='text-5xl text-green-500'/>
             </div>
          </div>   
          </div>
@@ -125,11 +125,11 @@ const AdminDashboard = () => {
           </div>
           <div>
             <div className='flex items-center gap-4'>
-                <div className='flex  flex-col items-center'>
-                    <p className='font-semibold text-xl '>Subscription Count</p>
-                    <h3 className='font-bold text-xl'>{count}</h3>
+                <div className='flex flex-col items-center'>
+                    <p className='text-xl font-semibold '>Subscription Count</p>
+                    <h3 className='text-xl font-bold'>{count}</h3>
                 </div>
-                <FcSalesPerformance className='text-yellow-500 text-5xl'/>
+                <FcSalesPerformance className='text-5xl text-yellow-500'/>
             </div>
           </div>
        </div>
@@ -137,14 +137,14 @@ const AdminDashboard = () => {
       </div> 
 
       <div>
-        <div className=''>
+        <div className='flex flex-col items-center justify-center'>
             <h1 className='text-xl font-bold '>Courses OverView</h1>
 
-            <button onClick={()=>navigate("/course/create")} className='border border-black p-[0.4rem] px-[1.2rem] rounded-lg bg-[#1F2937] text-white font-bold'>
+            <button onClick={()=>navigate("/course/create")} className=' w-fit  p-[0.4rem] px-[1.2rem] rounded-lg bg-[#1F2937] text-white font-bold'>
               Create new course
             </button>
-            <table className='table overflow-x-scroll'>
-               <thead>
+            <table className='table overflow-x-scroll '>
+               <thead className=''>
                   <tr>
                     <th>S No</th>
                     <th>Course title</th>
@@ -155,13 +155,13 @@ const AdminDashboard = () => {
                     <th>Action</th>
                   </tr>
                </thead>
-               <tbody>
+               <tbody className=''>
                 {myCourses.map((course,ind)=>{
                    return(
-                    <tr key={course._id}>
+                    <tr key={course._id} className=''>
                        <td>{ind+1}</td>
                        <td>
-                        <textarea readOnly value={course?.title} className='w-40 h-auto resize-none'></textarea>
+                        <textarea readOnly value={course?.title} className='w-40 h-auto resize-none bg-[#DEE4FA]'></textarea>
                        </td>
                        <td>
                         {course?.category}
@@ -173,7 +173,7 @@ const AdminDashboard = () => {
                         {course?.numberOfLecture}
                        </td>
                        <td>
-                       <textarea readOnly value={course?.description} className='w-40 h-[9rem] resize-none'></textarea>
+                       <textarea readOnly value={course?.description} className='w-40 h-[9rem] resize-none bg-[#DEE4FA]'></textarea>
                        </td>
                        <td className='flex items-center gap-4' >
                             <button onClick={()=>navigate("/course/displaylecture",{state:{...course}})} className='p-[0.2rem] px-[2rem] font-bold text-black rounded-md'>

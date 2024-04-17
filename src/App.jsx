@@ -16,6 +16,7 @@ import AddLecture from './Pages/Dashboard/AddLecture'
 import DisplayDemoVideo from './Pages/Dashboard/DisplayDemoVideo'
 import DeleteCourse from './Pages/Dashboard/DeleteCourse'
 import AdminDashboard from './Pages/Dashboard/AdminDashboard'
+import ComingSoon from './Pages/ComingSoon'
 
 
 const App = () => {
@@ -24,7 +25,7 @@ const App = () => {
     <div>
       <Routes>
         <Route path='/' element={<HomePage/>}></Route>
-        <Route path='/about' element={<AboutUs/>}></Route>
+        <Route path='/about' element={<ComingSoon/>}></Route>
         <Route path='/signup' element={<SignUp/>}></Route>
         <Route path='/denied' element={<Denied/>}></Route>
         <Route path='/login' element={<Login/>}></Route>

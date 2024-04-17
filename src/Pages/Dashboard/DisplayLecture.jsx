@@ -40,27 +40,27 @@ const DisplayLecture = () => {
   //  getLecture()
   return (
     <HomeLayout>
-     <div className='flex flex-col items-center justify-center gap-1 pt-12 pb-2 min-h-[90vh]'>
+     <div className='flex flex-col  gap-1 min-h-[90vh]  w-[100vw] pt-[4rem] bg-[#DEE4FA] lg:pt-[1rem]'>
          {/* <p className='text-[1.4rem] font-semibold text-center text-[#F78F3C]'>Course Name:{state.title}</p> */}
-       <div className='flex justify-center w-full gap-10'>
+       <div className='flex flex-col items-center gap-4 p-2 md:flex-row md:items-start'>
             {/* left section for video playing */}
-            <div className='w-[50rem] p-[0.1rem] rounded-lg flex flex-col gap-3'>
+            <div className='flex flex-col gap-3 rounded-lg '>
               <video src={state && lectures[currentVideo]?.lecture?.secure_url} 
-              className='object-fill w-full rounded-tl-lg rounded-tr-lg' 
+              className='object-fill w-full rounded-tl-lg rounded-tr-lg ' 
               controls
               disablePictureInPicture
               muted
               controlsList='nodownload'
               >  
              </video>   
-             <div>
+             <div className=''>
                 <h1 className='text-[1.5rem] font-medium '>{lectures && lectures[currentVideo]?.title}</h1>
                 <p className='text-[1rem] font-medium font-400'>{lectures && lectures[currentVideo]?.description}</p>
              </div>
             </div>
             {/* right section for displying list of lectures */}
-             <div className=''>
-               <ul className='w-[28rem] p-2 rounded-lg gap-1 shadow-md'>
+             <div className='w-full shadow-[2px_3px_5px_black] p-2'>
+               <ul className='gap-1 rounded-lg shadow-md'>
                 <li>
                   <p className='text-[1.3rem] font-bold '>Lectures list:</p>
                   {role==="ADMIN" && <button className='p-[0.5rem] px-[1.6rem] rounded-md text-white text-[1.2rem] font-semibold bg-red-400' onClick={()=>navigate("/course/addLecture",{state:{...state}})}>Add new lecture</button>}

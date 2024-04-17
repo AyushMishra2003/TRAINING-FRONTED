@@ -68,8 +68,8 @@ const AddLecture = () => {
 
   return (
     <HomeLayout>
-         <div className="min-h-[90vh] text-black flex flex-col items-center justify-center gap-10 mx-16">
-                <div className="flex flex-col gap-5 p-2 shadow-[0_0_10px_black] w-96 rounded-lg">
+         <div className="min-h-[90vh] text-black flex flex-col items-center justify-center gap-10 mx-16  ">
+                <div className="flex flex-col gap-5 p-2 shadow-[0_0_10px_black] w-[95vw] md:w-[60vw] rounded-lg  mt-[4rem] ">
                     <header className="relative flex items-center justify-center">
                         <button 
                             className="absolute text-xl text-green-500 left-2"
