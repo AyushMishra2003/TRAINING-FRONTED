@@ -6,7 +6,7 @@ import { Link, useNavigate } from 'react-router-dom';
 import Footer from '../Component/Footer';
 import { logout, me } from '../Redux/Slices/AuthSlice';
 import { getAllCourse } from '../Redux/Slices/CourseSlice';
-import logo from '../assets/img/logo.png'
+import logo from '../assets/img/mainlogo.png'
 
 function HomeLayout({ children }) {
 
@@ -76,10 +76,10 @@ function HomeLayout({ children }) {
                             <Link to="/">Home</Link>
                         </li>
                         <li>
-                            <Link to="/">Contact Us</Link>
+                            <Link to="/coming">Contact Us</Link>
                         </li>
                         <li>
-                            <Link to="/about">About Us</Link>
+                            <Link to="/coming">About Us</Link>
                         </li>
                         <li>
                             <Link to="/courses">All courses</Link>
@@ -130,16 +130,16 @@ function HomeLayout({ children }) {
             <div className='p-[1rem] items-center list-none gap-10 justify-between bg-[#1F2937] hidden lg:flex'>
                 <div className='flex items-center justify-center gap-6 text-[1rem] font-semibold text-white'>
                     <div>
-                        <img src={logo} alt="Logo" className='w-[4rem] h-[4rem] rounded-full' />
+                        <img src={logo} alt="Logo" className='w-[5rem] ' />
                     </div>
                 <li>
                      <Link to="/">Home</Link>
                  </li>
                         <li>
-                            <Link to="/" >Contact Us</Link>
+                            <Link to="/coming" >Contact Us</Link>
                         </li>
                         <li>
-                            <Link to="/about">About Us</Link>
+                            <Link to="/coming">About Us</Link>
                         </li>
                         <li>
                             <Link to="/courses">All courses</Link>

@@ -58,7 +58,7 @@ const CourseDescription = () => {
                     <p className='text-[1.5rem] font-semibold'>&#8377;2500</p>
                     <strike className="text-[1.5rem] font-semibold">5000</strike>
                  </div>
-                 <p className='text-red-500 text-[1.4rem]'>{`50% Discout`}</p>  
+                 <p className='text-red-500 text-[1.4rem]'>{`50% Discount`}</p>  
                 </div>  
                </div>
               </div>

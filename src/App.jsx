@@ -32,6 +32,7 @@ const App = () => {
         <Route path='/courses' element={<CourseList/>}></Route>
         <Route path='/viewprofile' element={<UserProfile/>}></Route>
         <Route path='/course/description' element={<CourseDescription/>}></Route>
+        <Route path='/coming' element={<ComingSoon/>}></Route>
         <Route  element={<RequireAuth allowedRoles={["ADMIN","USER"]}  />}>
            <Route path='/course/create' element={<CreateCourse/>}/>
            <Route path='/checkout' element={<Check/>}/>

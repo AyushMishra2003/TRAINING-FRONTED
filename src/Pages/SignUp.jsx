@@ -94,8 +94,8 @@ const SignUp = () => {
   return (
     <HomeLayout>
     
-       <div className='flex items-center justify-center h-[90vh] bg-gray-500'>
-          <form noValidate    onSubmit={createNewAccount}  className='flex flex-col  justify-center gap-3 rounded-lg  text-white shadow-[0_0_10px_black] w-96 p-5' >
+       <div className='flex items-center justify-center min-h-[90vh] bg-gray-500'>
+          <form noValidate    onSubmit={createNewAccount}  className='flex flex-col  justify-center gap-3 rounded-lg  text-white shadow-[0_0_10px_black] sm:w-[30rem] lg:pt-[2rem]  sm:pt-[5rem]  w-70 py-3 px-12 pt-[5rem]' >
              <h1 className='text-2xl font-bold text-center '>Registration Page</h1>
              
              <label htmlFor="image_uploads" className="cursor-pointer">

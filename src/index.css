@@ -11,3 +11,12 @@ body{
   overflow-x: hidden;
   /* background-color:red; */
 }
+
+
+.doubt-img {
+  background-image: linear-gradient(#060346d9, #060346d9), url('./assets/img/DoubtQuestions.jpg');
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-color: #0f0d31;
+}

@@ -12,8 +12,8 @@ import Service from "./service/Service";
 function HomePage() {
     return (
         <HomeLayout>
-            <div className="pt-10 text-black flex flex-col items-center gap-2  lg:gap-0 md:gap-1 bg-[#DEE4FA] min-h-[90vh] w-[100vw] pb-3">
-                <div className="flex flex-col-reverse items-center justify-center lg:gap-[1rem] xl:gap-[4rem] gap-2 lg:flex-row">
+            <div className="pt-10 text-black flex flex-col items-center gap-2   md:gap-1 bg-[#DEE4FA] min-h-[90vh] w-[100vw] lg:gap-[2rem] ">
+                <div className="flex flex-col-reverse items-center justify-center lg:gap-[1rem] gap-2 lg:flex-row ">
                    <div className="lg:w-[32rem] flex flex-col w-[18rem] sm:w-[36.5rem]  gap-1 lg:gap-[1.2rem]  md:w-[45rem] pb-1 msm:w-[27rem] avsm:w-[24rem] ">
                     <h1 className="lg:text-[2rem] font-semibold text-[1.2rem] text-[#2B3543]">Find Out best  <span className='font-bold text-green-700'>Farming Training Course</span>     </h1>
                     <p className="lg:text-xl text-[0.9rem] sm:text-[1.1rem]  text-black">
@@ -39,7 +39,7 @@ function HomePage() {
                     </div>
                 </div>
                
-                <div className="flex flex-wrap items-center sm:flex-row justify-center gap-3  p-2  border border-red-500 rounded-md shadow-md w-[18rem] md:w-[44rem]   sm:w-[28rem] lg:w-[60rem]  lg:gap-[2rem]  msm:w-[28rem] sm:p-0 sm:mr-[8rem] md:mr-[1rem]  avsm:w-[24rem] bg-[#212120] text-white">
+                <div className="flex flex-wrap items-center sm:flex-row justify-center gap-3  p-2   rounded-md shadow-md w-[18rem] md:w-[44rem]   sm:w-[28rem] lg:w-[60rem]  lg:gap-[2rem]  msm:w-[28rem] sm:p-0 sm:mr-[8rem] md:mr-[1rem]  avsm:w-[24rem] bg-[#212120] text-white">
                     <div className="flex items-center avsm:gap-3 lg:gap-[2rem] gap-[3rem]">
                         <img src={TrainerLogo} alt="" className="w-[4rem] h-[4rem] rounded-full shadow-[3px_5px_10px_#808080]" />
                         <p className="text-[1.2rem] font-semibold w-[6rem]">Best Online Training</p>
@@ -69,7 +69,7 @@ function HomePage() {
                                 <input type="radio" name="my-accordion-4" />
                                 <div className="text-xl font-medium collapse-title">
                                   Training are live or recorded?
-                                </div>
+                                </div> 
                                 <div className="text-white collapse-content">
                                     <p>All lectures are recorded.</p>
                                 </div>
@@ -96,7 +96,7 @@ function HomePage() {
                         </div>
                     </div>
                 </section>
-
+                 {/* <Query/> */}
             </div>
         </HomeLayout>
     );

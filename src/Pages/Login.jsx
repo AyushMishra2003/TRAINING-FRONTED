@@ -51,8 +51,8 @@ const Login = () => {
   return (
     <HomeLayout>
       
-      <div className='flex items-center justify-center h-[90vh] bg-gray-500'>
-          <form noValidate  onSubmit={Login}    className='flex flex-col  justify-center gap-3 rounded-lg  text-white shadow-[0_0_10px_black] w-96 p-5' >
+      <div className='flex items-center justify-center min-h-[90vh] bg-gray-500'>
+          <form noValidate  onSubmit={Login}    className='flex flex-col  justify-center gap-3 rounded-lg  text-white shadow-[0_0_10px_black] sm:w-96 sm:p-5 w-70 p-4' >
              <h1 className='text-2xl font-bold text-center '> Login Page</h1>
              <div className='flex flex-col gap-1'>
                 <label htmlFor="email" className='font-semibold'>Email</label>
