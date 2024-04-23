@@ -75,14 +75,20 @@ function HomeLayout({ children }) {
                         <li>
                             <Link to="/">Home</Link>
                         </li>
-                        <li>
+                        {/* <li>
                             <Link to="/coming">Contact Us</Link>
-                        </li>
-                        <li>
+                        </li> */}
+                        {/* <li>
                             <Link to="/coming">About Us</Link>
-                        </li>
+                        </li> */}
                         <li>
                             <Link to="/courses">All courses</Link>
+                        </li>
+                        <li>
+                            <Link to="/courses">Contract Farming</Link>
+                        </li>
+                        <li>
+                            <Link to="/courses">Shop</Link>
                         </li>
                          
                        {isLoggedIn && role=='ADMIN' &&(
@@ -134,15 +140,16 @@ function HomeLayout({ children }) {
                     </div>
                 <li>
                      <Link to="/">Home</Link>
-                 </li>
+                 </li> 
                         <li>
-                            <Link to="/coming" >Contact Us</Link>
+                            <Link to="/courses">Our courses</Link>
+                        </li>
+
+                        <li>
+                            <Link to="/contactFarming" >Contact Farming</Link>
                         </li>
                         <li>
-                            <Link to="/coming">About Us</Link>
-                        </li>
-                        <li>
-                            <Link to="/courses">All courses</Link>
+                            <Link to="/shop">Shop Us</Link>
                         </li>
                          
                        {isLoggedIn && role=='ADMIN' &&(

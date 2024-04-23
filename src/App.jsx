@@ -17,6 +17,8 @@ import DisplayDemoVideo from './Pages/Dashboard/DisplayDemoVideo'
 import DeleteCourse from './Pages/Dashboard/DeleteCourse'
 import AdminDashboard from './Pages/Dashboard/AdminDashboard'
 import ComingSoon from './Pages/ComingSoon'
+import Product from './Pages/product/Product'
+import Form from './Pages/ContactFarmng/Form'
 
 
 const App = () => {
@@ -30,6 +32,8 @@ const App = () => {
         <Route path='/denied' element={<Denied/>}></Route>
         <Route path='/login' element={<Login/>}></Route>
         <Route path='/courses' element={<CourseList/>}></Route>
+        <Route path='/shop' element={<Product/>}></Route>
+        <Route path='/contactFarming' element={<Form/>}></Route>
         <Route path='/viewprofile' element={<UserProfile/>}></Route>
         <Route path='/course/description' element={<CourseDescription/>}></Route>
         <Route path='/coming' element={<ComingSoon/>}></Route>
