@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import { Route, Routes } from 'react-router-dom'
 import HomePage from './Pages/HomePage'
 import AboutUs from './Pages/AboutUs'
@@ -22,6 +22,10 @@ import Form from './Pages/ContactFarmng/Form'
 
 
 const App = () => {
+  
+  useEffect(()=>{
+    window.scrollTo(0, 0);
+  },[])
 
   return (
     <div>

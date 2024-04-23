@@ -7,6 +7,7 @@ import Footer from '../Component/Footer';
 import { logout, me } from '../Redux/Slices/AuthSlice';
 import { getAllCourse } from '../Redux/Slices/CourseSlice';
 import logo from '../assets/img/mainlogo.png'
+import { useEffect } from 'react';
 
 function HomeLayout({ children }) {
 
@@ -49,7 +50,11 @@ function HomeLayout({ children }) {
         console.log("ho gaya babu");
         }
     }
-
+    
+    
+    useEffect(()=>{
+        window.scrollTo(0, 0);
+      },[])
     return (
         <div className="min-h-[90vh] ">
             <div className="absolute left-0 z-50 w-full bg-[#1F2937]  drawer lg:hidden">
@@ -85,10 +90,10 @@ function HomeLayout({ children }) {
                             <Link to="/courses">All courses</Link>
                         </li>
                         <li>
-                            <Link to="/courses">Contract Farming</Link>
+                            <Link to="/contactFarming">Contract Farming</Link>
                         </li>
                         <li>
-                            <Link to="/courses">Shop</Link>
+                            <Link to="/shop">Shop</Link>
                         </li>
                          
                        {isLoggedIn && role=='ADMIN' &&(
@@ -149,7 +154,7 @@ function HomeLayout({ children }) {
                             <Link to="/contactFarming" >Contract Farming</Link>
                         </li>
                         <li>
-                            <Link to="/shop">Shop Us</Link>
+                            <Link to="/shop">Shop</Link>
                         </li>
                          
                        {isLoggedIn && role=='ADMIN' &&(
