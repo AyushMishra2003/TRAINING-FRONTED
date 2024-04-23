@@ -1,13 +1,14 @@
 import React from 'react'
 import HomeLayout from '../../Layout/HomeLayout'
-
+import bgcVideo from '../../assets/img/bgc.mp4'
 const Form = () => {
     const inputStyle = ' min-w-[19rem] w-[80vw] sm:w-[24rem] rounded-[3px] border h-full border-[#2d3a4b] p-2 focus:border-red outline-none  text-[0.95rem] tracking-wide resize-none bg-white text-black'
     const labelStyle = "text-[0.85rem] tracking-wide text-[#cfcfdb]"
   return (
     <HomeLayout>
-    <div className='pt-[1rem] text-black  gap-2   md:gap-1 bg-[#DEE4FA] min-h-[90vh]  lg:gap-[2rem] flex  items-center justify-center  w-[100vw] pb-4'>
-           <form  className='flex flex-col items-start justify-center gap-4 w-fit  bg-[#1a1a2b92] p-3 py-4 sm:p-4 rounded-md shadow-sm shadow-light'>
+    <div className='pt-[0.5rem] text-black  gap-2   md:gap-1 bg-[#DEE4FA] min-h-[90vh]  lg:gap-[2rem]  items-center justify-center relative flex flex-col w-full overflow-hidden sm:items-center sm:justify-center  pb-4 '>
+    <video src={bgcVideo} className='min-w-[100vw] absolute top-0 left-0  min-h-fit ' loop autoPlay playsInline muted></video>
+           <form  className='flex flex-col items-start justify-center gap-4 w-fit  bg-[#1a1a2b92] p-3 py-4 sm:p-4 rounded-md shadow-sm shadow-light z-50'>
 
          <input className={inputStyle} type="text" placeholder='Enter name...' name='fullName' 
              />

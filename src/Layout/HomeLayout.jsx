@@ -146,7 +146,7 @@ function HomeLayout({ children }) {
                         </li>
 
                         <li>
-                            <Link to="/contactFarming" >Contact Farming</Link>
+                            <Link to="/contactFarming" >Contract Farming</Link>
                         </li>
                         <li>
                             <Link to="/shop">Shop Us</Link>
