@@ -1,5 +1,4 @@
 import { Link } from "react-router-dom";
-
 import HomePageImage from "../assets/img/backgroundimg.png";
 import HomeLayout from "../Layout/HomeLayout";
 import Home from "../Home";
@@ -9,12 +8,53 @@ import students from '../assets/img/enrolledLogo.png'
 import course from '../assets/img/courselogo.jpg'
 import TrainerLogo from '../assets/img/TrainerLogo.png'
 import Service from "./service/Service";
+import bgcVideo from "../assets/img/farmingbgc.mp4"
+import HomeDes from "./HomeDes";
 function HomePage() {
     return (
         <HomeLayout>
-            <div className="pt-10 text-black flex flex-col items-center gap-2   md:gap-1 bg-[#DEE4FA] min-h-[90vh] w-[100vw] lg:gap-[2rem] ">
-                <div className="flex flex-col-reverse items-center justify-center lg:gap-[1rem] gap-2 lg:flex-row ">
-                   <div className="lg:w-[32rem] flex flex-col w-[18rem] sm:w-[36.5rem]  gap-1 lg:gap-[1.2rem]  md:w-[45rem] pb-1 msm:w-[27rem] avsm:w-[24rem] ">
+             <div className='bg-main font-poppins'>
+
+<main className={`relative min-h-[fit]  w-full overflow-hidden z-[100] `}>
+    <video src={bgcVideo} alt="" className=' min-w-[100vw] absolute top-0 left-0 h-full object-cover' loop autoPlay playsInline muted ></video>
+
+    <div className={` bg-[#060614ef] z-60  pb-0 flex w-full h-full  items-center object-cover flex-col justify-between  text-white py-[1rem] gap-2 `}>
+        <div className='flex flex-col items-center justify-center gap-3 w-[99vw] md:w-[48rem] p-2 sm:w-[95vw] overflow-hidden'>
+            <h2  className='tracking-[3px] bg-light p-[2px] px-4 rounded-full text-[1.15rem] text-center mt-[7rem] text-red font-[500]'>Welcome to TheFarmingShip</h2>
+            <HomeDes/>
+        </div>
+        <div className="z-[100]">
+        <div className="lg:w-[32rem] flex flex-col w-[18rem] sm:w-[36.5rem]  gap-1 lg:gap-[1.2rem]  md:w-[45rem] msm:w-[27rem] avsm:w-[24rem] z-100 pb-[2.5rem]">
+                    <div className="flex flex-col gap-1 avsm:flex-row">
+                        <Link to="/courses">
+                            <button className="px-4 py-2 text-lg font-semibold transition-all  bg-[#FF1B49] rounded-md cursor-pointer lg:px-5 lg:py-3 text-white border border-[#FF1B49] hover:bg-[#DEE4FA] hover:text-black ease-in duration-500 w-fit ">
+                                Explore courses
+                            </button>
+                        </Link>
+
+                        <Link to="/courses">
+                            <button className="px-[2rem] py-2 text-lg font-semibold text-black transition-all  border border-[#FF1B49] rounded-md cursor-pointer lg:px-[3rem] lg:py-[0.8rem]  w-fit  bg-[#FF1B49] hover:bg-[#ffffff] hover:text-[#FF1B49] ease-in duration-300 ">
+                                Shop
+                            </button>
+                        </Link>
+                        <Link to="/courses">
+                            <button className="px-4 py-2 text-lg font-semibold transition-all  bg-[#FF1B49] rounded-md cursor-pointer lg:px-5 lg:py-3 text-white border border-[#FF1B49] hover:bg-[#DEE4FA] hover:text-black ease-in duration-500 w-fit ">
+                                Contract Farming
+                            </button>
+                        </Link>
+                        {/* <Link to="/shop">
+                            <button className="px-[2.2rem] py-[2rem] text-lg font-semibold text-black transition-all  border border-[#FF1B49] rounded-md cursor-pointer lg:px-5 lg:py-3  w-fit  bg-[#FF1B49] hover:bg-[#FF1B49] hover:text-white ease-in duration-300 ">
+                                Shop
+                            </button>
+                        </Link> */}
+
+                    </div>
+                    </div>
+                </div>
+        </div>
+</main>
+{/* <div className="flex flex-col-reverse items-center justify-center lg:gap-[1rem] gap-2 lg:flex-row z-50 border bordr-red-500">
+                   <div className="lg:w-[32rem] flex flex-col w-[18rem] sm:w-[36.5rem]  gap-1 lg:gap-[1.2rem]  md:w-[45rem] pb-1 msm:w-[27rem] avsm:w-[24rem] z-100">
                     <h1 className="lg:text-[2rem] font-semibold text-[1.2rem] text-[#2B3543]">Find Out best  <span className='font-bold text-green-700'>Farming Training Course</span>     </h1>
                     <p className="lg:text-xl text-[0.9rem] sm:text-[1.1rem]  text-black">
                         We have a large library of courses taught by highly skilled and qualified faculties at a very affordable cost.
@@ -34,72 +74,12 @@ function HomePage() {
                         </Link>
                     </div>
                     </div>
-                    <div >
-                    <img alt="homepage image" src={HomePageImage} className=" w-[18rem] sm:w-[38rem] md:w-[46rem] lg:w-[26rem] msm:w-[28rem] avsm:w-[24rem]" />
-                    </div>
-                </div>
-               
-                <div className="flex flex-wrap items-center sm:flex-row justify-center gap-3  p-2   rounded-md shadow-md w-[18rem] md:w-[44rem]   sm:w-[28rem] lg:w-[60rem]  lg:gap-[2rem]  msm:w-[28rem] sm:p-0 sm:mr-[8rem] md:mr-[1rem]  avsm:w-[24rem] bg-[#212120] text-white">
-                    <div className="flex items-center avsm:gap-3 lg:gap-[2rem] gap-[3rem]">
-                        <img src={TrainerLogo} alt="" className="w-[4rem] h-[4rem] rounded-full shadow-[3px_5px_10px_#808080]" />
-                        <p className="text-[1.2rem] font-semibold w-[6rem]">Best Online Training</p>
-                    </div>
 
-                    <div className="flex items-center avsm:gap-3 sm:gap-1 lg:gap-[2rem] gap-[3rem]">
-                        <img src={lifetimeacess} alt=""  className="w-[4rem] h-[4rem] rounded-full shadow-[3px_5px_10px_#a42dcf]"/>
-                        <p className="text-[1.2rem] font-semibold w-[6rem]">Fully Lifetime Access</p>
-                    </div>
-
-                    <div className="flex items-center avsm:gap-3 sm:gap-1 lg:gap-[2rem] gap-[3rem]">
-                        <img src={students} alt=""  className="w-[4rem] h-[4rem] rounded-full shadow-[3px_5px_10px_#179619]"/>
-                        <p className="text-[1.2rem] font-semibold w-[6rem]">800k+ Entrolled Students</p>
-                    </div>
-                    <div className="flex items-center avsm:gap-3 sm:gap-1 lg:gap-[2rem] gap-[3rem]">
-                        <img src={course} alt="" className="w-[4rem] h-[4rem] rounded-full shadow-[3px_5px_10px_#3845a6]" />
-                        <p className="text-[1.2rem] font-semibold w-[6rem]">200+ Courses Available</p>
-                    </div>
-                </div>
-                <Service/>
-
-                <section >
-                    <div className='w-full p-5 py-12 sm:px-20 md:px-[10vw] lg:px-[25vw]  flex flex-col gap-2 items-center'>
-                         <p className="text-[2rem] font-semibold">Ask Questions?</p>
-                        <div className=" join join-vertical w-full rounded-md shadow-[2px_2px_9px_#000,-2px_-2px_1px_#3a3b3a]">
-                            <div className="collapse collapse-arrow join-item border border-[#2d3a4b] bg-[#808080] ">
-                                <input type="radio" name="my-accordion-4" />
-                                <div className="text-xl font-medium collapse-title">
-                                  Training are live or recorded?
-                                </div> 
-                                <div className="text-white collapse-content">
-                                    <p>All lectures are recorded.</p>
-                                </div>
-                            </div>
-                            <div className="collapse collapse-arrow join-item border border-[#2d3a4b] bg-[#808080]">
-                                <input type="radio" name="my-accordion-4" />
-                                <div className="text-xl font-medium collapse-title">
-                                    Training are started from basic or not 
-                                </div>
-                                <div className="text-white collapse-content">
-                                    <p>Yes every course starts from the very basics until it is specifically mentioned otherwise.</p>
-                                </div>
-                            </div>
-                             <div className="collapse collapse-arrow join-item border border-[#2d3a4b] bg-[#808080]">
-                                <input type="radio" name="my-accordion-4" />
-                                <div className="text-xl font-medium collapse-title">
-                                    Demo Video Available or not
-                                </div>
-                                <div className="text-white collapse-content">
-                                    <p>Yes Demo are Available</p>
-                                </div>
-                            </div>
-
-                        </div>
-                    </div>
-                </section>
-                 {/* <Query/> */}
-            </div>
-        </HomeLayout>
-    );
+                </div> */}
+<Service/>
+</div>
+</HomeLayout>
+ );
 }
 
 export default HomePage;
