@@ -13,7 +13,7 @@ import { IoMdMail } from "react-icons/io";
 
 import { Link } from 'react-router-dom'
 import { FaLocationDot } from 'react-icons/fa6';
-import logo from '../assets/img/formlogo1.png'
+import logo from '../assets/img/LogoFarming.jpeg'
 
 
 
