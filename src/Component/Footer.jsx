@@ -13,7 +13,7 @@ import { IoMdMail } from "react-icons/io";
 
 import { Link } from 'react-router-dom'
 import { FaLocationDot } from 'react-icons/fa6';
-import logo from '../assets/img/logo.png'
+import logo from '../assets/img/formlogo1.png'
 
 
 
@@ -51,12 +51,12 @@ const Footer = () => {
                                 <p className='w-[80vw] sm:w-[80%] md:w-[12rem] lg:w-[15rem] m-[9px_0] h-[3.4px] bg-[linear-gradient(to_right,#35C8F2,#27B872)] rounded-md'></p>
                             </div>
                             <div className='flex flex-col gap-4 mt-6 '>
-                                <Link to={'/coming'} className={listStyle}><MdKeyboardDoubleArrowRight />Our Portfolio</Link>
-                                <Link to={'/coming'} className={listStyle}><MdKeyboardDoubleArrowRight />Company</Link>
-                                <Link to={'/coming'} className={listStyle}><MdKeyboardDoubleArrowRight />Services</Link>
+                                <Link to={'/'} className={listStyle}><MdKeyboardDoubleArrowRight />Home</Link>
+                                <Link to={'/courses'} className={listStyle}><MdKeyboardDoubleArrowRight />Our Courses</Link>
+                                <Link to={'/contactFarming'} className={listStyle}><MdKeyboardDoubleArrowRight />Contract Farming</Link>
 
-                                <Link to={'/coming'} className={listStyle}><MdKeyboardDoubleArrowRight />Blog</Link>
-                                <Link to={'/coming'} className={listStyle}><MdKeyboardDoubleArrowRight />Contact</Link>
+                                <Link to={'/shop'} className={listStyle}><MdKeyboardDoubleArrowRight />Shop</Link>
+                                {/* <Link to={'/coming'} className={listStyle}><MdKeyboardDoubleArrowRight />Contact</Link> */}
 
                             </div>
                         </div>

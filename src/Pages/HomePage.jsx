@@ -32,12 +32,12 @@ function HomePage() {
                             </button>
                         </Link>
 
-                        <Link to="/courses">
-                            <button className="px-[2rem] py-2 text-lg font-semibold text-black transition-all  border border-[#FF1B49] rounded-md cursor-pointer lg:px-[3rem] lg:py-[0.8rem]  w-fit  bg-[#FF1B49] hover:bg-[#ffffff] hover:text-[#FF1B49] ease-in duration-300 ">
+                        <Link to="/shop">
+                            <button className="px-[2rem] py-2 text-lg font-semibold text-[#fff] transition-all  border border-[#FF1B49] rounded-md cursor-pointer lg:px-[3rem] lg:py-[0.8rem]  w-fit  bg-[#FF1B49] hover:bg-[#ffffff] hover:text-[#FF1B49] ease-in duration-300 ">
                                 Shop
                             </button>
                         </Link>
-                        <Link to="/courses">
+                        <Link to="/contactFarming">
                             <button className="px-4 py-2 text-lg font-semibold transition-all  bg-[#FF1B49] rounded-md cursor-pointer lg:px-5 lg:py-3 text-white border border-[#FF1B49] hover:bg-[#DEE4FA] hover:text-black ease-in duration-500 w-fit ">
                                 Contract Farming
                             </button>

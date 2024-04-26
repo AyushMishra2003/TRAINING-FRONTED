@@ -6,7 +6,7 @@ import { Link, useNavigate } from 'react-router-dom';
 import Footer from '../Component/Footer';
 import { logout, me } from '../Redux/Slices/AuthSlice';
 import { getAllCourse } from '../Redux/Slices/CourseSlice';
-import logo from '../assets/img/mainlogo.png'
+import logo from '../assets/img/formlogo1.png'
 import { useEffect } from 'react';
 
 function HomeLayout({ children }) {
@@ -138,7 +138,7 @@ function HomeLayout({ children }) {
                  <p>logo</p>
                </div>
             </div>
-            <div className='p-[1rem] items-center list-none gap-10 justify-between bg-[#1F2937] hidden lg:flex'>
+            <div className='p-[1rem] items-center list-none gap-10 justify-between bg-[#404241] hidden lg:flex'>
                 <div className='flex items-center justify-center gap-6 text-[1rem] font-semibold text-white'>
                     <div>
                         <img src={logo} alt="Logo" className='w-[5rem] ' />

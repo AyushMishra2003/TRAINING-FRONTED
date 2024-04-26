@@ -4,11 +4,11 @@ import { IoMdLaptop } from "react-icons/io";
 import certificate from '../assets/img/certificate.jpg'
 import onlinelecture from '../assets/img/onlinetutorial.jpg'
 import globalicons from '../assets/img/global.jpg'
-import service1 from '../assets/img/service1.jpg'
-import service2 from '../assets/img/service2.jpg'
-import service3 from '../assets/img/service3.jpg'
-import service4 from '../assets/img/service4.jpg'
-import service5 from '../assets/img/service5.jpg'
+import service1 from '../assets/ourService/service1.jpg'
+import service2 from '../assets/ourService/sevice2.jpg'
+import service3 from '../assets/ourService/service3.jpg'
+import service4 from '../assets/ourService/service4.jpg'
+
 const useServiceData=[
     {
        "icon":service1,
@@ -28,9 +28,7 @@ const useServiceData=[
     {
         "icon":service4
     },
-    {
-        "icon":service5
-    }
+    
 ]
 
 export default useServiceData

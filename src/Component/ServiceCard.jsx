@@ -7,7 +7,7 @@ function ServiceCard({icon,text,content}) {
   return (
     <div className='flex rounded-md ease-in-out duration-500 hover:text-white cursor-pointer items-center justify-center shadow-[3px_5px_7px_#6a11cb] p-2 '>
     
-            <img src={icon} alt=""  className='w-[20rem] h-[13rem]'/>
+            <img src={icon} alt=""  className='w-[15rem] h-[13rem]'/>
         {/* <p className='text-[1.5rem] group-hover:text-white'>{text}</p>
         <p className='w-[20rem] text-center '>{content}</p> */}
       
