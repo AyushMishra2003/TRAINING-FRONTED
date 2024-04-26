@@ -8,6 +8,7 @@ const ProductCard = ({image,productName}) => {
       <div className='flex items-center gap-[0.6rem]'>
         <p className='text-[1.2rem] font-bold'>Rs 560</p>
         <p className='line-through'>699</p>
+        <p>Ayush</p>
       </div>
     </div>
   )
