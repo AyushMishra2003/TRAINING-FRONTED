@@ -19,6 +19,7 @@ import AdminDashboard from './Pages/Dashboard/AdminDashboard'
 import ComingSoon from './Pages/ComingSoon'
 import Product from './Pages/product/Product'
 import Form from './Pages/ContactFarmng/Form'
+import Opportunity from './Pages/Opportunity'
 
 
 const App = () => {
@@ -41,6 +42,7 @@ const App = () => {
         <Route path='/viewprofile' element={<UserProfile/>}></Route>
         <Route path='/course/description' element={<CourseDescription/>}></Route>
         <Route path='/coming' element={<ComingSoon/>}></Route>
+        <Route path='/opportunity' element={<Opportunity/>}></Route>
         <Route  element={<RequireAuth allowedRoles={["ADMIN","USER"]}  />}>
            <Route path='/course/create' element={<CreateCourse/>}/>
            <Route path='/checkout' element={<Check/>}/>

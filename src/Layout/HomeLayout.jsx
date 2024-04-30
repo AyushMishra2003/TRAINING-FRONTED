@@ -56,7 +56,7 @@ function HomeLayout({ children }) {
         window.scrollTo(0, 0);
       },[])
     return (
-        <div className="min-h-[90vh] ">
+        <div className="min-h-[90vh]">
             <div className="absolute left-0 z-50 w-full bg-[#1F2937]  drawer lg:hidden">
                 <input className="drawer-toggle" id="my-drawer" type="checkbox" />
                 <div className="drawer-content">
@@ -94,6 +94,10 @@ function HomeLayout({ children }) {
                         </li>
                         <li>
                             <Link to="/shop">Shop</Link>
+                        </li>
+
+                        <li>
+                            <Link to="/opportunity">Opportunity</Link>
                         </li>
                          
                        {isLoggedIn && role=='ADMIN' &&(
@@ -156,7 +160,10 @@ function HomeLayout({ children }) {
                         <li>
                             <Link to="/shop">Shop</Link>
                         </li>
-                         
+                        <li>
+                            <Link to="/opportunity">Opportunity</Link>
+                        </li>
+
                        {isLoggedIn && role=='ADMIN' &&(
                           <li>
                              <Link to={"/admin/dashboard"}>Admin DashBoard</Link>

@@ -13,9 +13,9 @@ import HomeDes from "./HomeDes";
 function HomePage() {
     return (
         <HomeLayout>
-             <div className='bg-main font-poppins'>
+             <div className=' bg-main font-poppins'>
 
-<main className={`relative min-h-[fit]  w-full overflow-hidden z-[100] `}>
+<main className={`relative min-h-[fit]  w-full overflow-hidden z-100000000 `}>
     <video src={bgcVideo} alt="" className=' min-w-[100vw] absolute top-0 left-0 h-full object-cover' loop autoPlay playsInline muted ></video>
 
     <div className={` bg-[#060614ef] z-60  pb-0 flex w-full h-full  items-center object-cover flex-col justify-between  text-white py-[1rem] gap-2 `}>
