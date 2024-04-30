@@ -33,14 +33,14 @@ const Footer = () => {
             {/* <img src={footerImg} alt="" className='absolute h-full w-[100vw]' /> */}
             <div className='flex  relative flex-col xl:flex-row p-[2.5rem_1rem] md:p-[2.5_5rem] gap-8 xl:justify-around '>
                 <div className='flex flex-col gap-2'>
-                    <div className='mb-3'><img className='w-[5rem]' alt="" src={logo} /></div>
+                    <div className='mb-3'><img className='w-[5rem] h-[5rem] rounded-full' alt="" src={logo} /></div>
                     <p className='leading-6 xl:w-[23rem] w-full'>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Aliquam aspernatur necessitatibus nulla, deserunt, commodi sapiente numquam quas modi esse nostrum recusandae doloremque dolor consequuntur quidem corrupti nam voluptatibus laboriosam? Doloremque hic, minima rem voluptatum non laborum impedit dolores error ut, assumenda at in necessitatibus sit accusamus animi nihil, facere quasi?y.</p>
                     <div className='flex gap-4 mt-3'>
-                        <a href="" className='text-[20px]'><BsLinkedin /></a>
-                        <a href="" className='text-[20px]'><BsFacebook /></a>
-                        <a href="" className='text-[20px]'><BsWhatsapp /></a>
-                        <a href="" className='text-[20px]'><BsInstagram /></a>
-                        <a href="" className='text-[20px]'><BsTwitter /></a>
+                        {/* <a href="" className='text-[20px] text-[#0C61BF]'><BsLinkedin /></a> */}
+                        <a href="" className='text-[20px] text-[#1873EB]'><BsFacebook /></a>
+                        <a href="" className='text-[20px] text-[#37D153]'><BsWhatsapp /></a>
+                        <a href="" className='text-[20px] text-[#F503C3]'><BsInstagram /></a>
+                        <a href="" className='text-[20px] text-[#1C96E8]'><BsTwitter /></a>
                     </div>
                 </div>
                 <div className='flex flex-col justify-between gap-8 md:gap-6 md:flex-row'>

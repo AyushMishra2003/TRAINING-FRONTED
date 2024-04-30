@@ -5,12 +5,10 @@ const Opportunity = () => {
     const inputStyle = ' min-w-[19rem] w-[80vw] sm:w-[24rem] rounded-[3px] border h-full border-[#2d3a4b] p-2 focus:border-red outline-none  text-[0.95rem] tracking-wide resize-none bg-white text-black'
     const labelStyle = "text-[0.85rem] tracking-wide text-[#cfcfdb]"
   return (
-    // const inputStyle = 'min-w-[19rem] w-[80vw] sm:w-[24rem] rounded-[3px] border h-full border-[#2d3a4b] p-2 focus:border-red outline-none  text-[0.95rem] tracking-wide resize-none bg-white text-black'
-    // const labelStyle = "text-[0.85rem] tracking-wide text-[#cfcfdb]"
     <HomeLayout>
 
         <div className='min-h-[90vh]  flex flex-col gap-3 items-center justify-center pt-[2rem] pb-[1rem] '>
-            <div className='flex '>
+            <div className='flex '> 
                 <div className='flex flex-col gap-3'>
                 <h1 className='text-[1.5rem] text-red-500'>Employment</h1>
                 <p className='w-[27rem]'>Lorem ipsum dolor sit amet consectetur adipisicing elit. Doloribus, dicta debitis voluptas laborum veritatis facilis optio maiores enim omnis tenetur, nulla aperiam in repudiandae eaque placeat eligendi sequi! Illum, earum reiciendis placeat numquam quos cum magni corrupti cumque suscipit blanditiis nisi architecto iure fuga sapiente eaque tempora exercitationem molestias. Aperiam officiis atque magnam amet, cupiditate minus temporibus dicta! Aspernatur, neque?</p>
