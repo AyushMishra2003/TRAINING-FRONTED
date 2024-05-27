@@ -57,6 +57,24 @@ body{
   width: 6rem; /* Default size for very small screens */
 }
 
+.animate-bounce {
+  animation: bounce 2s infinite;
+}
+
+@keyframes bounce {
+  0% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+  100% {
+    transform: translateY(0);
+  }
+}
+
+
+
 @media (min-width: 320px) {
   .custom-img-size {
     width: 8rem; /* Adjust this value for small screens */

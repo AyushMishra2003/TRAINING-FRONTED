@@ -26,7 +26,7 @@ const CourseList = () => {
   return(
     <div>
       <HomeLayout>
-         <div className='flex flex-wrap items-center justify-center gap-1 pt-12 pb-2  bg-[#DEE4FA] w-full '>
+         <div className='flex flex-wrap items-center justify-center gap-1 pt-12 pb-2  bg-[#F1EDEA] w-full '>
             <CourseIntro/>
             <CourseAllList/>
         </div> 

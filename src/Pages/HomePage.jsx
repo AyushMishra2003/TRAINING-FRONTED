@@ -1,4 +1,4 @@
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import HomePageImage from "../assets/img/backgroundimg.png";
 import HomeLayout from "../Layout/HomeLayout";
 import Home from "../Home";
@@ -22,6 +22,7 @@ import CourseAllList from "./Course/CourseAllList";
 
 
 function HomePage() {
+    const navigate = useNavigate()
     return (
         <HomeLayout>
             <div className="flex flex-col">
@@ -36,16 +37,24 @@ function HomePage() {
                         ))}
                     </div>
                 </div> */}
+                  <Knowledge />
+                  <Banner />
+                  <div className="flex flex-col items-center justify-center gap-4 pb-2">
+                    <h1 className="text-[1.5rem] text-center font-bold">Our Top Notch Courses</h1>
+
+                    <CourseAllList />
+                    <button
+                        className="bg-[#22C55E] hover:bg-[#1a9441] text-white font-bold py-2 px-6 rounded border-2 border-transparent hover:border-[#22C55E] animate-bounce"
+                        onClick={() => navigate("/courses")}
+                    >
+                        View More
+                    </button>
+                </div>
                 <div className="flex flex-col items-center justify-center">
-                    <Knowledge />
-                    <Banner />
                     <Contact />
                 </div>
-                <div className="flex flex-col items-center justify-center gap-4 pb-2">
-                <CourseAllList/>
-                <button>View More</button>
-                </div>
               
+
                 <Faq />
                 <JoinCommunity />
             </div>
