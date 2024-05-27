@@ -142,8 +142,8 @@ function HomeLayout({ children }) {
                  <p>logo</p>
                </div>
             </div>
-            <div className='p-[1rem] items-center list-none gap-10 justify-between bg-[#404241] hidden lg:flex'>
-                <div className='flex items-center justify-center gap-6 text-[1rem] font-semibold text-white'>
+            <div className='p-[1rem] items-center list-none gap-10 justify-between bg-[#FFFFFF] hidden lg:flex'>
+                <div className='flex items-center justify-center gap-6 text-[1rem] font-semibold text-black'>
                     <div>
                         <img src={logo} alt="Logo" className='w-[6rem] h-[6rem] rounded-full' />
                     </div>

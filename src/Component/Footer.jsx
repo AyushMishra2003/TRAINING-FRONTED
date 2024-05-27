@@ -37,10 +37,10 @@ const Footer = () => {
                     <p className='leading-6 xl:w-[23rem] w-full'>Farmingship is your one stop solution for agricultural services which will guide you for your land requirement to all facilities, Here you can get the training and certificate for your agricultural businesses and other agricultural utilities and we will also help identify your entrepreneurial journey through various programs. Our experts will guide you throughout your journey and we look forward to work with you.</p>
                     <div className='flex gap-4 mt-3'>
                         {/* <a href="" className='text-[20px] text-[#0C61BF]'><BsLinkedin /></a> */}
-                        <a href="" className='text-[20px] text-[#1873EB]'><BsFacebook /></a>
-                        <a href="" className='text-[20px] text-[#37D153]'><BsWhatsapp /></a>
-                        <a href="" className='text-[20px] text-[#F503C3]'><BsInstagram /></a>
-                        <a href="" className='text-[20px] text-[#1C96E8]'><BsTwitter /></a>
+                        <a href="" className='text-[20px]'><BsFacebook /></a>
+                        <a href="" className='text-[20px] '><BsWhatsapp /></a>
+                        <a href="" className='text-[20px] '><BsInstagram /></a>
+                        <a href="" className='text-[20px'><BsTwitter /></a>
                     </div>
                 </div>
                 <div className='flex flex-col justify-between gap-8 md:gap-6 md:flex-row'>

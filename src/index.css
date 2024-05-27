@@ -20,3 +20,63 @@ body{
   background-size: cover;
   background-color: #0f0d31;
 }
+
+
+/* src/index.css */
+@keyframes updown {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+.animate-updown {
+  animation: updown 2s infinite ease-in-out;
+}
+
+.input-wrapper {
+  position: relative;
+}
+
+.search-input {
+  padding-left: 2.5rem; /* Adjust padding to make room for the icon */
+}
+
+.search-icon {
+  position: absolute;
+  left: 0.75rem;
+  top: 50%;
+  transform: translateY(-50%);
+  pointer-events: none;
+  color: #6b7280; /* Tailwind's gray-500 color */
+}
+
+.custom-img-size {
+  width: 6rem; /* Default size for very small screens */
+}
+
+@media (min-width: 320px) {
+  .custom-img-size {
+    width: 8rem; /* Adjust this value for small screens */
+  }
+}
+
+@media (min-width: 520px) {
+  .custom-img-size {
+    width: 10rem; /* Adjust this value for medium screens */
+  }
+}
+
+@media (min-width: 768px) {
+  .custom-img-size {
+    width: 15rem; /* Adjust this value for larger screens */
+  }
+}
+
+@media (min-width: 1024px) {
+  .custom-img-size {
+    width: 20rem; /* Adjust this value for extra large screens */
+  }
+}
