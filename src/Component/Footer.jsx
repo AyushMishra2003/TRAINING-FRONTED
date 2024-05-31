@@ -84,15 +84,15 @@ const Footer = () => {
                         <div className='flex flex-col gap-4 mt-6 '>
                             <Link to={'/'} className={`${contactStyle} lg:items-center`}><CiClock1 />10:00AM - 06:00PM</Link>
                             <Link to={'/'} className={`${contactStyle} lg:items-center`}><MdOutlineSmartphone />+91 9090909090</Link>
-                            <Link to={'/'} className={`${contactStyle} lg:items-center`}><IoMdMail />info@thefarming.org</Link>
-                            <Link to={'/'} className={`${contactStyle} lg:items-center`}><FaLocationDot />BHU, Varanasi, India</Link>
-                            <Link to={'/'} className={`${contactStyle} md:items-start`}><FaLocationDot className='md:text-[1.7rem] text-[1rem] items-center' />5th floor CDC Building, BHU Varanasi, Uttar Pradesh 221005</Link>
+                            <Link to={'/'} className={`${contactStyle} lg:items-center`}><IoMdMail />info@ayush.org</Link>
+                            <Link to={'/'} className={`${contactStyle} lg:items-center`}><FaLocationDot />Bhojubber, Varanasi, India</Link>
+                            <Link to={'/'} className={`${contactStyle} md:items-start`}><FaLocationDot className='md:text-[1.7rem] text-[1rem] items-center' />Varanasi, Uttar Pradesh 221003</Link>
                         </div>
                     </div>
                 </div>
 
             </div>
-            <div className='text-center text-[1.05rem] font-[600] p-3 bg-gradient-to-r from-[#0C1015] via-[#183134] to-[#0C1015] '><span >&#169;</span> {year} | Copyright <span className='bg-clip-text text-transparent bg-[linear-gradient(to_right,#35C8F2,#27B872)]'>The FarmingShip</span> - All Rights Reserved</div>
+            <div className='text-center text-[1.05rem] font-[600] p-3 bg-gradient-to-r from-[#0C1015] via-[#183134] to-[#0C1015] '><span >&#169;</span> {year} | Copyright <span className='bg-clip-text text-transparent bg-[linear-gradient(to_right,#35C8F2,#27B872)]'>The Lery Learn</span> - All Rights Reserved</div>
         </footer >
 
     )

@@ -57,7 +57,7 @@ function HomeLayout({ children }) {
       },[])
     return (
         <div className="min-h-[90vh]">
-            <div className="absolute left-0 z-50 w-full bg-[#1F2937]  drawer lg:hidden">
+            <div className="absolute left-0 z-50 w-full bg-[#fff] text-black  drawer lg:hidden">
                 <input className="drawer-toggle" id="my-drawer" type="checkbox" />
                 <div className="drawer-content">
                     <label htmlFor="my-drawer" className="relative cursor-pointer">
@@ -71,7 +71,7 @@ function HomeLayout({ children }) {
                 <div className="w-0 drawer-side bg-[#1F2937]">
                     <label htmlFor="my-drawer" className="drawer-overlay">
                     </label>
-                    <ul className="menu p-4 w-48 h-[100%] sm:w-80  relative  bg-[#1F2937] text-white">
+                    <ul className="menu p-4 w-48 h-[100%] sm:w-80  relative  bg-[#fff] text-black">
                         <li className="absolute z-50 w-fit right-2">
                             <button onClick={hideDrawer}>
                                 <AiFillCloseCircle size={24} />
@@ -138,14 +138,14 @@ function HomeLayout({ children }) {
                         )}
                     </ul>
                 </div>
-               <div>
+               {/* <div>
                  <p>logo</p>
-               </div>
+               </div> */}
             </div>
             <div className='p-[1rem] items-center list-none gap-10 justify-between bg-[#FFFFFF] hidden lg:flex'>
-                <div className='flex items-center justify-center gap-6 text-[1rem] font-semibold text-black'>
+                <div className='flex items-center justify-center gap-6 font-light  text-black'>
                     <div>
-                        <img src={logo} alt="Logo" className='w-[6rem] h-[6rem] rounded-full' />
+                        <p className='text-[1.5rem] font-mono'>AyuTech</p>
                     </div>
                 <li>
                      <Link to="/">Home</Link>
@@ -154,9 +154,9 @@ function HomeLayout({ children }) {
                             <Link to="/courses">Our courses</Link>
                         </li>
 
-                        <li>
+                        {/* <li>
                             <Link to="/contactFarming" >Contract Farming</Link>
-                        </li>
+                        </li> */}
                         <li>
                             <Link to="/shop">Shop</Link>
                         </li>
@@ -178,10 +178,10 @@ function HomeLayout({ children }) {
                          {!isLoggedIn && (
                             <li className="">
                                 <div className="flex items-center justify-center w-full gap-3 text-black">
-                                    <button className='w-full px-4 py-1 font-semibold bg-green-700 rounded-md '>
-                                        <Link to="/login" className='text-black'>Login</Link>
+                                    <button className='w-full px-8 py-3 font-semibold text-white bg-green-700 redound-md'>
+                                        <Link to="/login">Login</Link>
                                     </button>
-                                    <button className='w-full px-4 py-1 font-semibold text-black bg-green-700 rounded-md'>
+                                    <button className='w-full px-8 py-3 font-semibold text-white bg-green-700 redound-md'>
                                         <Link to="/signup">Signup</Link>
                                     </button>
                                 </div>
@@ -191,10 +191,10 @@ function HomeLayout({ children }) {
                         {isLoggedIn && (
                             <li className="">
                                 <div className="flex items-center justify-center w-full gap-3">
-                                    <button className='w-full px-4 py-1 font-semibold text-black bg-green-700 rounded-md'>
+                                    <button className='w-full px-8 py-3 font-semibold text-white bg-green-700 redound-md'>
                                         <Link to="/viewprofile">Profile</Link>
                                     </button>
-                                    <button className='w-full px-4 py-1 font-semibold text-black bg-green-700 rounded-md'>
+                                    <button className='w-full px-8 py-3 font-semibold text-white bg-green-700 rounded-md'>
                                         <Link onClick={handleLogout}>Logout</Link>
                                     </button>
                                 </div>

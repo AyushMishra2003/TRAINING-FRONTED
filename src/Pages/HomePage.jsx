@@ -39,17 +39,7 @@ function HomePage() {
                 </div> */}
                   <Knowledge />
                   <Banner />
-                  <div className="flex flex-col items-center justify-center gap-4 pb-2">
-                    <h1 className="text-[1.5rem] text-center font-bold">Our Top Notch Courses</h1>
-
-                    <CourseAllList />
-                    <button
-                        className="bg-[#22C55E] hover:bg-[#1a9441] text-white font-bold py-2 px-6 rounded border-2 border-transparent hover:border-[#22C55E] animate-bounce"
-                        onClick={() => navigate("/courses")}
-                    >
-                        View More
-                    </button>
-                </div>
+              
                 <div className="flex flex-col items-center justify-center">
                     <Contact />
                 </div>
@@ -60,6 +50,7 @@ function HomePage() {
             </div>
 
         </HomeLayout>
+
     );
 }
 
