@@ -1,101 +1,121 @@
-import React, { useEffect } from 'react'
-import {
-    BsFacebook,
-    BsInstagram,
-    BsLinkedin,
-    BsTwitter,
-    BsWhatsapp
-} from 'react-icons/bs'
-
-import { MdKeyboardDoubleArrowRight, MdOutlineSmartphone } from "react-icons/md";
-import { CiClock1 } from "react-icons/ci";
-import { IoMdMail } from "react-icons/io";
-
-import { Link } from 'react-router-dom'
-import { FaLocationDot } from 'react-icons/fa6';
-import logo from '../assets/img/LogoFarming.jpeg'
-
-
-
+import React from 'react';
+import logo from '../assets/booklogo.jpg'
 const Footer = () => {
-
-    const listStyle = "text-[0.95rem] hover:pl-2 flex items-center gap-1 hover:bg-clip-text hover:text-transparent hover:bg-[linear-gradient(to_right,#35C8F2,#27B872)] font-semibold  text-slate-300 transition-all duration-300 ease-in-out"
-    const contactStyle = "text-[0.95rem] flex items-start sm:items-center lg:items-start gap-1 hover:bg-clip-text hover:text-transparent hover:bg-[linear-gradient(to_right,#35C8F2,#27B872)] font-semibold  text-slate-300 "
-
-    const year = new Date().getFullYear()
-
-    useEffect(()=>{
-        window.scrollTo(0, 0);
-      },[])
-
-    return (
-        <footer className='text-white  bg-[#1F2937]'>
-            {/* <img src={footerImg} alt="" className='absolute h-full w-[100vw]' /> */}
-            <div className='flex  relative flex-col xl:flex-row p-[2.5rem_1rem] md:p-[2.5_5rem] gap-8 xl:justify-around '>
-                <div className='flex flex-col gap-2'>
-                    <div className='mb-3'><img className='w-[5rem] h-[5rem] rounded-full' alt="" src={logo} /></div>
-                    <p className='leading-6 xl:w-[23rem] w-full'>Farmingship is your one stop solution for agricultural services which will guide you for your land requirement to all facilities, Here you can get the training and certificate for your agricultural businesses and other agricultural utilities and we will also help identify your entrepreneurial journey through various programs. Our experts will guide you throughout your journey and we look forward to work with you.</p>
-                    <div className='flex gap-4 mt-3'>
-                        {/* <a href="" className='text-[20px] text-[#0C61BF]'><BsLinkedin /></a> */}
-                        <a href="" className='text-[20px]'><BsFacebook /></a>
-                        <a href="" className='text-[20px] '><BsWhatsapp /></a>
-                        <a href="" className='text-[20px] '><BsInstagram /></a>
-                        <a href="" className='text-[20px'><BsTwitter /></a>
-                    </div>
-                </div>
-                <div className='flex flex-col justify-between gap-8 md:gap-6 md:flex-row'>
-                    <div className='flex flex-col w-[80vw] md:w-[60%] gap-8 sm:flex-row sm:justify-between md:gap-6 lg:gap-10'>
-                        <div className='w-[80vw] sm:w-[50%] md:w-[14rem]'>
-                            <div>
-                                <p className='text-[1.09rem] font-[600]'>ABOUT US</p>
-                                <p className='w-[80vw] sm:w-[80%] md:w-[12rem] lg:w-[15rem] m-[9px_0] h-[3.4px] bg-[linear-gradient(to_right,#35C8F2,#27B872)] rounded-md'></p>
-                            </div>
-                            <div className='flex flex-col gap-4 mt-6 '>
-                                <Link to={'/'} className={listStyle}><MdKeyboardDoubleArrowRight />Home</Link>
-                                <Link to={'/courses'} className={listStyle}><MdKeyboardDoubleArrowRight />Our Courses</Link>
-                                <Link to={'/contactFarming'} className={listStyle}><MdKeyboardDoubleArrowRight />Contract Farming</Link>
-
-                                <Link to={'/shop'} className={listStyle}><MdKeyboardDoubleArrowRight />Shop</Link>
-                                {/* <Link to={'/coming'} className={listStyle}><MdKeyboardDoubleArrowRight />Contact</Link> */}
-
-                            </div>
-                        </div>
-                        {/* <div className='w-ful sm:w-[50%] md:w-[14rem] '>
-                            <div>
-                                <p className='text-[1.09rem] font-[600]'>OUR SERVICES</p>
-                                <p className='w-[80vw] sm:w-[80%] lg:w-[15rem] md:w-[12rem] m-[9px_0] h-[3.4px] bg-[linear-gradient(to_right,#35C8F2,#27B872)] rounded-md'></p>
-                            </div>
-                            <div className='flex flex-col gap-4 mt-6 '>
-                                <Link to={'/'} className={listStyle}><MdKeyboardDoubleArrowRight />E Brochure</Link>
-                                <Link to={'/'} className={listStyle}><MdKeyboardDoubleArrowRight />Corporate Identity</Link>
-                                <Link to={'/'} className={listStyle}><MdKeyboardDoubleArrowRight />Business Card</Link>
-                                <Link to={'/'} className={listStyle}><MdKeyboardDoubleArrowRight />Print Media</Link>
-                                <Link to={'/'} className={listStyle}><MdKeyboardDoubleArrowRight />Logo Design</Link>
-
-
-                            </div>
-                        </div> */}
-                    </div>
-                    <div className='md:w-[16rem] w-[80vw]'>
-                        <div>
-                            <p className='text-[1.09rem] font-[600]'>CONTACT US</p>
-                            <p className='w-[80vw] md:w-[16rem] m-[9px_0] h-[3.4px] bg-[linear-gradient(to_right,#35C8F2,#27B872)] rounded-md'></p>
-                        </div>
-                        <div className='flex flex-col gap-4 mt-6 '>
-                            <Link to={'/'} className={`${contactStyle} lg:items-center`}><CiClock1 />10:00AM - 06:00PM</Link>
-                            <Link to={'/'} className={`${contactStyle} lg:items-center`}><MdOutlineSmartphone />+91 9090909090</Link>
-                            <Link to={'/'} className={`${contactStyle} lg:items-center`}><IoMdMail />info@ayush.org</Link>
-                            <Link to={'/'} className={`${contactStyle} lg:items-center`}><FaLocationDot />Bhojubber, Varanasi, India</Link>
-                            <Link to={'/'} className={`${contactStyle} md:items-start`}><FaLocationDot className='md:text-[1.7rem] text-[1rem] items-center' />Varanasi, Uttar Pradesh 221003</Link>
-                        </div>
-                    </div>
-                </div>
-
+  return (
+    <footer className="bg-[#F0F4F9] text-black py-10">
+      <div className="container mx-auto px-4">
+        {/* Newsletter Section */}
+        {/* <div className="flex flex-col md:flex-row items-center justify-between pb-10 border-b-2 border-yellow-500">
+          <div className="mb-6 md:mb-0">
+            <h4 className="text-lg font-semibold mb-4">Subscribe to our Newsletter</h4>
+            <form className="flex flex-col md:flex-row items-center">
+              <input type="text" placeholder="Your Full Name" className="p-2 border border-gray-300 rounded-md mb-4 md:mb-0 md:mr-4" />
+              <input type="email" placeholder="Your Email Address" className="p-2 border border-gray-300 rounded-md mb-4 md:mb-0 md:mr-4" />
+              <button className="bg-yellow-500 text-white py-2 px-6 rounded-md">Subscribe</button>
+            </form>
+          </div>
+        </div> */}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mt-10">
+          <div>
+            <h4 className="text-lg font-bold mb-4 border-b-2 border-yellow-500 inline-block">Contact Us</h4>
+            <div className="space-y-2">
+              <div className="flex items-center">
+                <i className="fas fa-map-marker-alt text-yellow-500 mr-2"></i>
+                  Ayush Mishra Bhojubeer Varanasi Uttar Pradesh
+              </div>
+              <div className="flex items-center">
+                <i className="fas fa-envelope text-yellow-500 mr-2"></i>
+                  ayushm185@gmail.com
+              </div>
+              <div className="flex items-center">
+                <i className="fas fa-phone text-yellow-500 mr-2"></i>
+                 +91 6388291292
+              </div>
             </div>
-            <div className='text-center text-[1.05rem] font-[600] p-3 bg-gradient-to-r from-[#0C1015] via-[#183134] to-[#0C1015] '><span >&#169;</span> {year} | Copyright <span className='bg-clip-text text-transparent bg-[linear-gradient(to_right,#35C8F2,#27B872)]'>The Lery Learn</span> - All Rights Reserved</div>
-        </footer >
+          </div>
+          <div>
+            <h4 className="text-lg font-bold mb-4 border-b-2 border-yellow-500 inline-block">Quick Links</h4>
+            <div className="space-y-2 text-black">
+              <div className="flex items-center">
+                <div className="h-3 w-3 bg-yellow-500 rounded-full mr-2"></div>
+                <a href="#" className='hover:text-yellow-500 duration-300'>Home</a>
+              </div>
+              <div className="flex items-center">
+                <div className="h-3 w-3 bg-yellow-500 rounded-full mr-2"></div>
+                <a href="#" className='hover:text-yellow-500 duration-300'>About Us</a>
+              </div>
+              <div className="flex items-center">
+                <div className="h-3 w-3 bg-yellow-500 rounded-full mr-2"></div>
+                <a href="#" className='hover:text-yellow-500 duration-300'>Terms & Conditions</a>
+              </div>
+              <div className="flex items-center">
+                <div className="h-3 w-3 bg-yellow-500 rounded-full mr-2"></div>
+                <a href="#" className='hover:text-yellow-500 duration-300'>Special</a>
+              </div>
+              <div className="flex items-center">
+                <div className="h-3 w-3 bg-yellow-500 rounded-full mr-2"></div>
+                <a href="#" className='hover:text-yellow-500 duration-300'>Privacy Policy</a>
+              </div>
+            </div>
+          </div>
+          <div>
+            <h4 className="text-lg font-bold mb-4 border-b-2 border-yellow-500 inline-block">Course</h4>
+            <div className="space-y-2 text-black">
+              <div className="flex items-center">
+                <div className="h-3 w-3 bg-yellow-500 rounded-full mr-2"></div>
+                <a href="#" className='hover:text-yellow-500 duration-300'>Photography</a>
+              </div>
+              <div className="flex items-center">
+                <div className="h-3 w-3 bg-yellow-500 rounded-full mr-2"></div>
+                <a href="#" className='hover:text-yellow-500 duration-300'>Math</a>
+              </div>
+              <div className="flex items-center">
+                <div className="h-3 w-3 bg-yellow-500 rounded-full mr-2"></div>
+                <a href="#" className='hover:text-yellow-500 duration-300'>Marketing</a>
+              </div>
+              <div className="flex items-center">
+                <div className="h-3 w-3 bg-yellow-500 rounded-full mr-2"></div>
+                <a href="#" className='hover:text-yellow-500 duration-300'>Health & Fitness</a>
+              </div>
+              <div className="flex items-center">
+                <div className="h-3 w-3 bg-yellow-500 rounded-full mr-2"></div>
+                <a href="#"  className='hover:text-yellow-500 duration-300' >Development</a>
+              </div>
+            </div>
+          </div>
+          <div>
+            <h4 className="text-lg font-bold mb-4 border-b-2 border-yellow-500 inline-block">News & Blog</h4>
+            <div className="space-y-2">
+              <div>
+                <a href="#">Now you can use AI to create your online course</a>
+                <p className="text-sm text-gray-600">Jan 10, 2024</p>
+              </div>
+              <div>
+                <a href="#">Photography by Creating an Online Course</a>
+                <p className="text-sm text-gray-600">Jan 10, 2024</p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div className="mt-10 flex flex-col lg:flex-row justify-between items-center">
+          <div>
+            <img src={logo} alt="EDUMINT Logo" className="h-10" />
+          </div>
+          <div className="text-start text-sm my-4 lg:my-0 flex items-center gap-3">
+            <p className='text-[#201654] font-bold'>SkillPathshala</p>
+            <p>&copy; 2024 by Ayush Mishra</p>
+       
+          </div>
+          <div className="flex space-x-4">
+            <a href="#" className="text-gray-600"><i className="fab fa-facebook-f"></i></a>
+            <a href="#" className="text-gray-600"><i className="fab fa-twitter"></i></a>
+            <a href="#" className="text-gray-600"><i className="fab fa-linkedin-in"></i></a>
+            <a href="#" className="text-gray-600"><i className="fab fa-instagram"></i></a>
+          </div>
+        </div>
+      </div>
+    </footer>
+  );
+};
 
-    )
-}
-
-export default Footer
+export default Footer;

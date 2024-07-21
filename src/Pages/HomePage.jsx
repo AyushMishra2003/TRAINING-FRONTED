@@ -19,26 +19,20 @@ import Faq from "./Faq";
 import JoinCommunity from "./JoinCommity";
 import Course from "../Component/Course";
 import CourseAllList from "./Course/CourseAllList";
+import CourseCategory from "./Course/CourseCategory";
 
 
 function HomePage() {
     const navigate = useNavigate()
     return (
         <HomeLayout>
-            <div className="flex flex-col">
+            <div className="flex flex-col overflow-x-hidden">
 
                 <HeroSection />
                 <FeaturesSection />
 
-                {/* <div className="h-4 bg-gray-200 flex justify-center">
-                    <div className="w-full h-4 bg-gray-200 flex flex-wrap">
-                        {[...Array(20)].map((_, i) => (
-                            <span key={i} className="w-4 h-4 bg-gray-200 rounded-full mx-2" />
-                        ))}
-                    </div>
-                </div> */}
                   <Knowledge />
-                  <Banner />
+                  <CourseCategory/>
               
                 <div className="flex flex-col items-center justify-center">
                     <Contact />

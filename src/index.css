@@ -10,6 +10,8 @@ body{
   box-sizing: border-box;
   overflow-x: hidden;
   /* background-color:red; */
+  overflow-x: hidden;
+  background-color: #F0F4F9;
 }
 
 
@@ -98,3 +100,20 @@ body{
     width: 20rem; /* Adjust this value for extra large screens */
   }
 }
+
+
+#header.scrolled {
+  background-color: white;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+@media (max-width: 1024px) {
+  .fixed {
+    transition: transform 0.3s;
+    transform: translateX(100%);
+  }
+  .fixed.translate-x-0 {
+    transform: translateX(0);
+  }
+}
+

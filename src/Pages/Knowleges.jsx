@@ -1,38 +1,62 @@
+// src/components/HomeSection.js
 import React from 'react';
-import knowledge from '../assets/hero/knowledge.webp'
-const Knowledge= () =>{
-  return (
-    <section className="bg-white py-16 px-4 sm:px-6 lg:px-8">
-      <div className="container mx-auto flex flex-wrap">
-        <div className="w-full lg:w-1/2 xl:w-1/2 p-6">
-          <img
-             src={knowledge}
-            className="w-full h-full object-cover rounded-lg"
-          />
-        </div>
-        <div className=" flex flex-col gap-3  w-full lg:w-1/2 xl:w-1/2 p-6">
-          <h2 className="text-3xl font-bold text-gray-900 sm:text-4xl">
-          We Share Knowledge Among The World
-          </h2>
-          <div className='flex flex-col gap-10'>
+import heroPhoto from '../assets/aboutPhoto.png';
+import { FaAngleRight } from "react-icons/fa6";
 
-          <p className="mt-4 text-lg text-gray-500 sm:text-xl">
-          Curabitur arcu erat, accumsan id imperdiet et, porttitor at sem. Curabitur non nulla sit amet nisl tempus convallis quis ac lectus. Proin eget tortor risus. Sed porttitor lectus nibh. Praesent sapien massa, convallis a pellentesque nec, egestas non nisi. Sed porttitor lectus nibh. Donec quis ac lectus. Proin eget tortor risus. Sed porttitor lectus nibh. Praesent sapien massa, convallis risus. Sed porttitor lectus nibh. Praesent sapien massa, convallis a pellentesque nec, egestas non nisi. Sed porttitor lectus nibh. Donec
+const Knowledge = () => {
+  return (
+    <section className="flex flex-col lg:flex-row items-center  gap-8 lg:gap-10 justify-center lg:justify-center p-4 pb-[5rem] ">
+      {/* Left Section */}
+      <div className="relative w-full lg:w-fit">
+        <img 
+          src={heroPhoto} 
+          alt="About Us"
+          className="w-full lg:w-[35rem] h-[20rem] lg:h-[30rem] object-cover rounded-lg"
+        />
+        <div className="absolute bottom-[-2rem] left-1/2 transform -translate-x-1/2 bg-white lg:w-[20rem] border-b-4 border-yellow-400 rounded-lg shadow-lg px-6 py-6">
+          <p className="text-lg font-semibold text-[#201654]">About Us</p>
+          <p className="text-sm text-[#201654] w-[10rem] sm:w-full">
+            This is some text about us that is positioned over the image. 
+            Adjust as needed for content.
           </p>
-          <p className="mt-4 text-lg text-gray-500 sm:text-xl">
-          Curabitur non nulla sit amet nisl tempus convallis quis ac lectus. Proin eget tortor risus. Sed porttitor lectus nibh. Praesent sapien massa. Quisque velit nisi, pretium ut lacinia in elementum id enim non nulla sit amet nisl tempus convallis quis ac lectus proin eget.
-          </p>
-         
+        </div>
+      </div>
+
+      {/* Right Section */}
+      <div className="flex flex-col lg:w-fit gap-2 mt-4 lg:mt-0">
+        <p className="text-xl text-[#201654] font-bold">
+          About Us
+        </p>
+        <div className=""></div>
+        <h2 className="text-2xl lg:text-4xl font-bold text-[#201654] mb-4">
+          Strength in Numbers
+        </h2>
+        <p className="text-[#201654] mb-4 lg:w-[38rem]">
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Modi quis asperiores distinctio et consequuntur, eos, itaque tempora veritatis officia temporibus consequatur quam fuga iste, quibusdam porro debitis obcaecati. Consequuntur, fugiat molestias reprehenderit vero provident incidunt inventore porro nihil possimus eligendi.
+        </p>
+        <div className='flex flex-col gap-2'>
+          <div className='flex items-start lg:w-[30rem] w-full gap-4'>
+            <button className='px-4 py-2 rounded-lg bg-[#FDC800] border border-[#201654] font-bold text-white flex items-center justify-center'>
+              <FaAngleRight />
+            </button>
+            <div className='flex flex-col gap-2 flex-1'>
+              <p className='text-[#201654] text-xl font-bold'>Ligula molestie</p>
+              <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Ducimus quaerat dolore blanditiis error voluptates harum totam illum eum voluptatum saepe.</p>
+            </div>
           </div>
-          <div>
-          <p className='font-bold'>Lance Altman</p>
-          <p>Founder, CEO</p>
+          <div className='flex items-start lg:w-[30rem] w-full gap-4'>
+            <button className='px-4 py-2 rounded-lg bg-[#FDC800] border border-[#201654] font-bold text-white flex items-center justify-center'>
+              <FaAngleRight />
+            </button>
+            <div className='flex flex-col gap-2 flex-1'>
+              <p className='text-[#201654] text-xl font-bold'>Ligula molestie</p>
+              <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Ducimus quaerat dolore blanditiis error voluptates harum totam illum eum voluptatum saepe.</p>
+            </div>
           </div>
-      
         </div>
       </div>
     </section>
   );
-}
+};
 
 export default Knowledge;

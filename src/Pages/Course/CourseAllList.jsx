@@ -1,34 +1,40 @@
-import React, { useEffect } from 'react'
-import { useDispatch, useSelector } from 'react-redux'
-import { getAllCourse } from '../../Redux/Slices/CourseSlice'
-import HomeLayout from '../../Layout/HomeLayout'
-import CourseCard from '../../Component/CourseCard'
-import CourseIntro from './CourseIntro'
-
+import React, { useEffect } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import { getAllCourse } from '../../Redux/Slices/CourseSlice';
+import CourseCard from '../../Component/CourseCard';
 
 const CourseAllList = () => {
-    const dispatch=useDispatch()
+    const dispatch = useDispatch();
 
-    const [courseData]=useSelector((state)=>{
-       return [state.course.courseData]
-    })
-    
-    console.log(courseData);
-    async function getCourses(){
-        const res=await dispatch(getAllCourse())
+    const { courseData } = useSelector(state => state.course);
+
+    async function getCourses() {
+        await dispatch(getAllCourse());
     }
-    useEffect(()=>{
-       getCourses()
-    },[])
 
-    courseData.map((val)=><CourseCard key={val.id} description={val.description} thumbnail={val.thumbnail.secure_url} category={val.category} createdBy={val.createdBy} numberOfLecture={val.numberOfLecture} title={val.title}/>)
-  return (
-    <div>
-         <div className='flex flex-wrap w-[90rem] justify-center items-center gap-[1.2rem] p-[1.5rem]'> 
-             {courseData.map((val)=><CourseCard  obj={val} key={val._id}/>)}
-          </div>
-    </div>
-  )
-}
+    useEffect(() => {
+        getCourses();
+    }, []);
 
-export default CourseAllList
+    return (
+        <div className="px-4 sm:px-6 lg:px-8">
+            <div className='flex flex-wrap justify-center gap-4 sm:gap-6 lg:gap-8'>
+                {courseData.map(course => (
+                    <CourseCard
+                        key={course._id}
+                        obj={course}
+                        description={course.description}
+                        thumbnail={course.thumbnail.secure_url}
+                        category={course.category}
+                        createdBy={course.createdBy}
+                        numberOfLecture={course.numberOfLecture}
+                        title={course.title}
+                        className="w-full sm:w-1/2 lg:w-1/3 xl:w-1/4"
+                    />
+                ))}
+            </div>
+        </div>
+    );
+};
+
+export default CourseAllList;

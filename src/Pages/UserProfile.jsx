@@ -8,14 +8,18 @@ import { Navigate } from 'react-router-dom'
 
 const UserProfile = () => {
    const dispatch=useDispatch()
-   
-   const  userProfile=useSelector((state)=>state.auth.profileData)
 
-      console.log(userProfile);
+   const id=useSelector((state)=>{
+    console.log(state);
+    return state.auth.id
+})
+   console.log(id);
+   const  userProfile=useSelector((state)=>state.auth.profileData)
 
    async function getProfile(){
       console.log("get profile run");
-      const res=await dispatch(me())
+      console.log(id);
+      const res=await dispatch(me(id))
    }
 
    useEffect(()=>{

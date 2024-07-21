@@ -5,8 +5,10 @@ import { json } from "react-router-dom";
 
 const initialState={
     isLoggedIn:localStorage.getItem('isLoggedIn') || false,
+    id:localStorage.getItem('id') || "",
     role:localStorage.getItem('role') || "",
-    data:localStorage.getItem('data') || "ACTIVE",
+    data:localStorage.getItem('data') || {},
+    userData:localStorage.getItem('userData') || [],
     profileData:{}
 }
 
@@ -70,25 +72,41 @@ export const logout=createAsyncThunk("/auth/logout",async()=>{
     }
 })
 
-export const me=createAsyncThunk("/auth/me",async()=>{
-    try{
-      const response=axiosInstance.get("user/me")
+export const me = createAsyncThunk('/auth/me', async (id, { rejectWithValue }) => {
+    try {
+      console.log(id);
+      console.log(typeof id);
+      
+      // Correct way to pass params
+      const response =  axiosInstance.get('/user/me', {
+        params: { id }
+      });
+  
       console.log(response);
-      toast.promise(response,{
-        loading:"Wait! Authrizaton in Process",
-        success:(data)=>{
-            console.log(data?.data?.user);
-            return data?.data?.message
-        },
-        error:"Failed to view Your Profile"
-      })
-    //   console.log((await response).data.data);
+  
+      toast.promise(
+        response,
+        {
+          loading: "Wait! Authorization in Process",
+          success: (data) => {
+            return data?.data?.message;
+          },
+          error: "Failed to view Your Profile"
+        }
+      );
+  
+      // Return the user data
+      console.log(await response);
       return (await response).data.user
-    }catch(e){
-        toast.error(error?.response?.data?.message)
+  
+    } catch (error) {
+      console.error(error);
+      toast.error(error?.response?.data?.message || "Failed to view Your Profile");
+  
+      // Return a rejected value with error message
+      return rejectWithValue(error?.response?.data?.message);
     }
-})
-
+  });
 
 const authSlice=createSlice({
     name:'auth',
@@ -99,11 +117,16 @@ const authSlice=createSlice({
        .addCase(LoginAccount.fulfilled,(state,action)=>{
         localStorage.setItem("data",JSON.stringify(action?.payload?.user))
         localStorage.setItem("isLoggedIn",true)
+        localStorage.setItem("id",action?.payload?.user?._id)
         localStorage.setItem("role",action?.payload?.user?.role)
         state.isLoggedIn=true,
         console.log(action?.payload?.user)
         state.data=action?.payload?.user
         state.role=action?.payload?.user?.role
+        localStorage.setItem("userData",JSON.stringify(action?.payload?.user))
+
+        console.log(state.userData);
+        console.log(state.isLoggedIn);
        })
        .addCase(logout.fulfilled,(state)=>{
         localStorage.clear()
@@ -116,6 +139,7 @@ const authSlice=createSlice({
          if(action.payload){
             console.log(action.payload);
             state.profileData={...action.payload}
+            console.log(state.profileData);
             // console.log(state.profileData);
          }
        })

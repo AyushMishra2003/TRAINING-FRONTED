@@ -89,7 +89,7 @@ const AdminDashboard = () => {
   },[])
   return (
     <HomeLayout>
-    <div className='min-h-[90vh]  gap-6 text-black  w-[100vw]   bg-[#DEE4FA] border border-red-500 hidden lg:flex  lg:flex-col lg:items-center lg:justify-center'>
+    <div className='min-h-[90vh]  gap-6 text-black  w-[100vw]   bg-[#DEE4FA] hidden lg:flex  lg:flex-col lg:items-center lg:justify-center'>
          <h1 className='text-5xl font-semibold text-red-500 '>Admin Dashboard</h1>     
       <div className=' gap-10 w-[100vw] items-center justify-center  flex '>    
        <div className=''>

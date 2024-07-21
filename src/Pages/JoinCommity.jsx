@@ -1,5 +1,5 @@
 import React from 'react';
-import community from '../assets/hero/community.png'
+import community from '../assets/communitybg.png'
 const JoinCommunity = () => {
   return (
     <div className="flex flex-col lg:flex-row items-center justify-center p-4 lg:p-8 bg-[#F2F7FA]">
@@ -26,7 +26,7 @@ const JoinCommunity = () => {
           />
           <button
             type="submit"
-            className="bg-green-700 text-white p-3 rounded-r-lg hover:bg-green-600 transition duration-300"
+            className="bg-yellow-500 text-white p-3 rounded-r-lg hover:bg-green-600 transition duration-300"
           >
             Subscribe
           </button>

@@ -1,261 +1,148 @@
-import {AiFillCloseCircle} from 'react-icons/ai';
-import {FiMenu} from 'react-icons/fi';
+import { AiFillCloseCircle } from 'react-icons/ai';
+import { FiMenu } from 'react-icons/fi';
 import { useDispatch, useSelector } from 'react-redux';
 import { Link, useNavigate } from 'react-router-dom';
-
+import { useEffect, useState } from 'react';
 import Footer from '../Component/Footer';
-import { logout, me } from '../Redux/Slices/AuthSlice';
-import { getAllCourse } from '../Redux/Slices/CourseSlice';
-import logo from '../assets/img/LogoFarming.jpeg'
-import { useEffect } from 'react';
+import { logout } from '../Redux/Slices/AuthSlice';
+import logo from '../assets/img/LogoFarming.jpeg';
 
 function HomeLayout({ children }) {
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
 
-    const dispatch=useDispatch()
-    const navigate=useNavigate()
+  const isLoggedIn = useSelector((state) => state?.auth?.isLoggedIn);
+  const role = useSelector((state) => state?.auth?.role);
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
 
-    const isLoggedIn=useSelector((state)=>state?.auth?.isLoggedIn)
-    const role=useSelector((state)=>state?.auth?.role)
+  function toggleMenu() {
+    setIsMenuOpen(!isMenuOpen);
+  }
 
+  async function handleLogout(e) {
+    e.preventDefault();
+    const res = await dispatch(logout());
+    if (res?.payload?.success) navigate('/');
+  }
 
-    function changeWidth() {
-        const drawerSide = document.getElementsByClassName("drawer-side");
-        drawerSide[0].style.width = 'auto';
-    }
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
 
-    function hideDrawer() {
-        const element = document.getElementsByClassName("drawer-toggle");
-        element[0].checked = false;
+  useEffect(() => {
+    const handleScroll = () => {
+      const header = document.getElementById('header');
+      if (window.scrollY > 50) {
+        header.classList.add('scrolled');
+      } else {
+        header.classList.remove('scrolled');
+      }
+    };
 
-        const drawerSide = document.getElementsByClassName("drawer-side");
-        drawerSide[0].style.width = '0';
-    }
+    window.addEventListener('scroll', handleScroll);
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+    };
+  }, []);
 
-    async function handleLogout(e) {
-        e.preventDefault();
-
-        const res = await dispatch(logout());
-        if(res?.payload?.success)
-        navigate("/");
-    }
-    
-    async function getCourses(e){
-        console.log("hello ");
-        e.preventDefault()
-        console.log("don1");
-        const res=await dispatch(getAllCourse())
-        console.log("don2");
-        console.log(res?.payload);
-        if(res?.payload?.success){
-        console.log("ho gaya babu");
-        }
-    }
-    
-    
-    useEffect(()=>{
-        window.scrollTo(0, 0);
-      },[])
-    return (
-        <div className="min-h-[90vh]">
-            <div className="absolute left-0 z-50 w-full bg-[#fff] text-black  drawer lg:hidden">
-                <input className="drawer-toggle" id="my-drawer" type="checkbox" />
-                <div className="drawer-content">
-                    <label htmlFor="my-drawer" className="relative cursor-pointer">
-                        <FiMenu 
-                            onClick={changeWidth}
-                            size={"32px"}
-                            className="m-4 font-bold text-black"
-                        />
-                    </label>
-                </div>
-                <div className="w-0 drawer-side bg-[#1F2937]">
-                    <label htmlFor="my-drawer" className="drawer-overlay">
-                    </label>
-                    <ul className="menu p-4 w-48 h-[100%] sm:w-80  relative  bg-[#fff] text-black">
-                        <li className="absolute z-50 w-fit right-2">
-                            <button onClick={hideDrawer}>
-                                <AiFillCloseCircle size={24} />
-                            </button>
-                        </li>
-                        <li>
-                            <Link to="/">Home</Link>
-                        </li>
-                        {/* <li>
-                            <Link to="/coming">Contact Us</Link>
-                        </li> */}
-                        {/* <li>
-                            <Link to="/coming">About Us</Link>
-                        </li> */}
-                        <li>
-                            <Link to="/courses">All courses</Link>
-                        </li>
-                        <li>
-                            <Link to="/contactFarming">Contract Farming</Link>
-                        </li>
-                        <li>
-                            <Link to="/shop">Shop</Link>
-                        </li>
-
-                        <li>
-                            <Link to="/opportunity">Opportunity</Link>
-                        </li>
-                         
-                       {isLoggedIn && role=='ADMIN' &&(
-                          <li>
-                             <Link to={"/admin/dashboard"}>Admin DashBoard</Link>
-                          </li>
-                       )}
-                         {isLoggedIn && role=='ADMIN' &&(
-                          <li>
-                             <Link to={"/course/create"}>Create Course</Link>
-                          </li>
-                       )}
-
-                         {!isLoggedIn && (
-                            <li className="absolute bottom-4 w-[90%]">
-                                <div className="flex items-center justify-center w-full text-black">
-                                <button className='w-full px-4 py-1 font-semibold bg-green-700 rounded-md '>
-                                        <Link to="/login" className='text-black'>Login</Link>
-                                    </button>
-                                    <button className='w-full px-4 py-1 font-semibold text-black bg-green-700 rounded-md'>
-                                        <Link to="/signup">Signup</Link>
-                                    </button>
-                                </div>
-                            </li>
-                        )} 
-
-                        {isLoggedIn && (
-                            <li className="absolute bottom-4 w-[90%]">
-                                <div className="flex items-center justify-center w-full">
-                                <button className='w-full px-4 py-1 font-semibold bg-green-700 rounded-md '>
-                                        <Link to="/login" className='text-black'>Login</Link>
-                                    </button>
-                                    <button className='w-full px-4 py-1 font-semibold text-black bg-green-700 rounded-md'>
-                                        <Link to="/signup">Signup</Link>
-                                    </button>
-                                </div>
-                            </li>
-                        )}
-                    </ul>
-                </div>
-               {/* <div>
-                 <p>logo</p>
-               </div> */}
-            </div>
-            <div className='p-[1rem] items-center list-none gap-10 justify-between bg-[#FFFFFF] hidden lg:flex'>
-                <div className='flex items-center justify-center gap-6 font-light  text-black'>
-                    <div>
-                        <p className='text-[1.5rem] font-mono'>AyuTech</p>
-                    </div>
-                <li>
-                     <Link to="/">Home</Link>
-                 </li> 
-                        <li>
-                            <Link to="/courses">Our courses</Link>
-                        </li>
-
-                        {/* <li>
-                            <Link to="/contactFarming" >Contract Farming</Link>
-                        </li> */}
-                        <li>
-                            <Link to="/shop">Shop</Link>
-                        </li>
-                        <li>
-                            <Link to="/opportunity">Opportunity</Link>
-                        </li>
-
-                       {isLoggedIn && role=='ADMIN' &&(
-                          <li>
-                             <Link to={"/admin/dashboard"}>Admin DashBoard</Link>
-                          </li>
-                       )}
-                         {isLoggedIn && role=='ADMIN' &&(
-                          <li>
-                             <Link to={"/course/create"}>Create Course</Link>
-                          </li>
-                       )}
-            </div>
-                         {!isLoggedIn && (
-                            <li className="">
-                                <div className="flex items-center justify-center w-full gap-3 text-black">
-                                    <button className='w-full px-8 py-3 font-semibold text-white bg-green-700 redound-md'>
-                                        <Link to="/login">Login</Link>
-                                    </button>
-                                    <button className='w-full px-8 py-3 font-semibold text-white bg-green-700 redound-md'>
-                                        <Link to="/signup">Signup</Link>
-                                    </button>
-                                </div>
-                            </li>
-                        )} 
-
-                        {isLoggedIn && (
-                            <li className="">
-                                <div className="flex items-center justify-center w-full gap-3">
-                                    <button className='w-full px-8 py-3 font-semibold text-white bg-green-700 redound-md'>
-                                        <Link to="/viewprofile">Profile</Link>
-                                    </button>
-                                    <button className='w-full px-8 py-3 font-semibold text-white bg-green-700 rounded-md'>
-                                        <Link onClick={handleLogout}>Logout</Link>
-                                    </button>
-                                </div>
-                            </li>
-                        )}      
-            </div>
-            {/* <div className='flex items-center border border-black'>
-                <div>
-                    logo
-                </div>
-                <div>
-                <Link>Home</Link>
-                <Link>Contact Us</Link>
-                <Link>About us</Link>
-                <Link>Home</Link>
-                <Link>All Courses</Link>
-                {isLoggedIn && role=='ADMIN' &&(
-                          <li>
-                             <Link to={"/admin/dashboard"}>Admin DashBoard</Link>
-                          </li>
-                       )}
-                         {isLoggedIn && role=='ADMIN' &&(
-                          <li>
-                             <Link to={"/course/create"}>Create Course</Link>
-                          </li>
-                       )}
-                </div>
-
-                <div>
-                {!isLoggedIn && (
-                            <li className="absolute bottom-4 w-[90%]">
-                                <div className="flex items-center justify-center w-full text-black">
-                                    <button className='w-full px-4 py-1 font-semibold bg-green-700 rounded-md '>
-                                        <Link to="/login" className='text-black'>Login</Link>
-                                    </button>
-                                    <button className='w-full px-4 py-1 font-semibold text-black bg-green-700 rounded-md'>
-                                        <Link to="/signup">Signup</Link>
-                                    </button>
-                                </div>
-                            </li>
-                        )} 
-                    {isLoggedIn && (
-                            <li className="absolute bottom-4 w-[90%]">
-                                <div className="flex items-center justify-center w-full">
-                                    <button className='w-full px-4 py-1 font-semibold text-black rounded-md hover:bg-green-700'>
-                                        <Link to="/viewprofile">Profile</Link>
-                                    </button>
-                                    <button className='w-full px-4 py-1 font-semibold text-black rounded-md hover:bg-green-700'>
-                                        <Link onClick={handleLogout}>Logout</Link>
-                                    </button>
-                                </div>
-                            </li>
-                        )}      
-                </div>
-              
-            </div> */}
-            { children }
-          
-            <Footer />
+  return (
+    <div className="min-h-[90vh]">
+      <header id="header" className="sticky top-0 z-50 p-4 bg-[#F0F4F9] text-black transition-all duration-300">
+        <div className="container mx-auto flex justify-between items-center">
+          <div className="flex items-center">
+            <img src={logo} alt="Logo" className="w-10 h-10 mr-2" />
+            <span className="text-lg font-semibold">SkillPathshala</span>
+          </div>
+          <nav className="hidden lg:flex space-x-6">
+            <Link to="/" className="hover:text-yellow-500">Home</Link>
+            <Link to="/courses" className="hover:text-yellow-500">Courses</Link>
+            <Link to="/pages" className="hover:text-yellow-500">Pages</Link>
+            <Link to="/blog" className="hover:text-yellow-500">Blog</Link>
+            <Link to="/contact" className="hover:text-yellow-500">Contact Us</Link>
+          </nav>
+          <div className="hidden lg:flex space-x-4">
+            {!isLoggedIn ? (
+              <>
+                <Link to="/login" className="hover:text-yellow-500">Sign In</Link>
+                <Link to="/signup" className="bg-yellow-500 text-black px-4 py-2 rounded">Sign Up</Link>
+              </>
+            ) : (
+              <>
+                <Link to="/viewprofile" className="hover:text-yellow-500">Profile</Link>
+                <button onClick={handleLogout} className="hover:text-yellow-500">Logout</button>
+              </>
+            )}
+          </div>
+          <div className="lg:hidden">
+            {isMenuOpen ? (
+             ""
+            ) : (
+              <FiMenu size={32} className="cursor-pointer" onClick={toggleMenu} />
+            )}
+          </div>
         </div>
-    )
+      </header>
+
+      <div className={`fixed top-0 right-0 z-50 w-full h-full bg-[#1F2937] bg-opacity-75 transition-transform duration-300 ${isMenuOpen ? 'translate-x-0' : 'translate-x-full'}`}>
+        <div className="relative w-3/4 h-full bg-white text-black absolute top-0 right-0 p-4">
+          <AiFillCloseCircle size={32} className="cursor-pointer text-black absolute top-4 right-4" onClick={toggleMenu} />
+          <ul className="menu mt-12">
+            <li>
+              <Link to="/" onClick={toggleMenu}>Home</Link>
+            </li>
+            <li>
+              <Link to="/courses" onClick={toggleMenu}>All courses</Link>
+            </li>
+            <li>
+              <Link to="/contactFarming" onClick={toggleMenu}>Contract Farming</Link>
+            </li>
+            <li>
+              <Link to="/shop" onClick={toggleMenu}>Shop</Link>
+            </li>
+            <li>
+              <Link to="/opportunity" onClick={toggleMenu}>Opportunity</Link>
+            </li>
+            {isLoggedIn && role === 'ADMIN' && (
+              <>
+                <li>
+                  <Link to="/admin/dashboard" onClick={toggleMenu}>Admin DashBoard</Link>
+                </li>
+                <li>
+                  <Link to="/course/create" onClick={toggleMenu}>Create Course</Link>
+                </li>
+              </>
+            )}
+            {!isLoggedIn ? (
+              <li className="absolute bottom-4 w-[90%]">
+                <div className="flex items-center justify-center w-full text-black">
+                  <button className="w-full px-4 py-1 font-semibold bg-green-700 rounded-md">
+                    <Link to="/login" onClick={toggleMenu} className="text-black">Login</Link>
+                  </button>
+                  <button className="w-full px-4 py-1 font-semibold text-black bg-green-700 rounded-md">
+                    <Link to="/signup" onClick={toggleMenu}>Signup</Link>
+                  </button>
+                </div>
+              </li>
+            ) : (
+              <li className="absolute bottom-4 w-[90%]">
+                <div className="flex items-center justify-center w-full">
+                  <button className="w-full px-4 py-1 font-semibold text-black rounded-md hover:bg-green-700">
+                    <Link to="/viewprofile" onClick={toggleMenu}>Profile</Link>
+                  </button>
+                  <button className="w-full px-4 py-1 font-semibold text-black rounded-md hover:bg-green-700" onClick={handleLogout}>
+                    Logout
+                  </button>
+                </div>
+              </li>
+            )}
+          </ul>
+        </div>
+      </div>
+
+      {children}
+      <Footer />
+    </div>
+  );
 }
 
 export default HomeLayout;
