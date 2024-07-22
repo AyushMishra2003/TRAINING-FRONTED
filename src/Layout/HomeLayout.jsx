@@ -64,7 +64,7 @@ function HomeLayout({ children }) {
             {!isLoggedIn ? (
               <>
                 <Link to="/login" className="hover:text-yellow-500">Sign In</Link>
-                <Link to="/signup" className="bg-yellow-500 text-black px-4 py-2 rounded">Sign Up</Link>
+                <Link to="/signup" className="hover:text-yellow-500">Sign Up</Link>
               </>
             ) : (
               <>
@@ -129,7 +129,7 @@ function HomeLayout({ children }) {
                   <button className="w-full px-4 py-1 font-semibold text-black rounded-md hover:bg-green-700">
                     <Link to="/viewprofile" onClick={toggleMenu}>Profile</Link>
                   </button>
-                  <button className="w-full px-4 py-1 font-semibold text-black rounded-md hover:bg-green-700" onClick={handleLogout}>
+                  <button className="w-full px-2 font-semibold text-black rounded-md hover:bg-green-700" onClick={handleLogout}>
                     Logout
                   </button>
                 </div>
