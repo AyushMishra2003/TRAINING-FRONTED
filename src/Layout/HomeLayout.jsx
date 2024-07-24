@@ -59,6 +59,7 @@ function HomeLayout({ children }) {
             <Link to="/pages" className="hover:text-yellow-500">Pages</Link>
             <Link to="/blog" className="hover:text-yellow-500">Blog</Link>
             <Link to="/contact" className="hover:text-yellow-500">Contact Us</Link>
+            <Link to={"/coursesDescription"}>Course Details></Link>
           </nav>
           <div className="hidden lg:flex space-x-4">
             {!isLoggedIn ? (
