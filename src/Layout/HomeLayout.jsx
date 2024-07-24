@@ -55,7 +55,7 @@ function HomeLayout({ children }) {
           </div>
           <nav className="hidden lg:flex space-x-6">
             <Link to="/" className="hover:text-yellow-500">Home</Link>
-            <Link to="/courses" className="hover:text-yellow-500">Courses</Link>
+            <Link to="/coursesList" className="hover:text-yellow-500">Courses</Link>
             <Link to="/pages" className="hover:text-yellow-500">Pages</Link>
             <Link to="/blog" className="hover:text-yellow-500">Blog</Link>
             <Link to="/contact" className="hover:text-yellow-500">Contact Us</Link>
@@ -91,7 +91,7 @@ function HomeLayout({ children }) {
               <Link to="/" onClick={toggleMenu}>Home</Link>
             </li>
             <li>
-              <Link to="/courses" onClick={toggleMenu}>All courses</Link>
+              <Link to="/coursesList" onClick={toggleMenu}>All courses</Link>
             </li>
             <li>
               <Link to="/contactFarming" onClick={toggleMenu}>Contract Farming</Link>

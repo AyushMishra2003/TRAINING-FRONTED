@@ -22,11 +22,11 @@ const JoinCommunity = () => {
           <input
             type="email"
             placeholder="Email address"
-            className="flex-grow p-3 border border-gray-300 rounded-l-lg focus:outline-none focus:ring-2 focus:ring-green-400"
+            className="flex-grow p-3 border border-gray-300 rounded-l-lg focus:outline-none focus:ring-2 focus:ring-yellow-400"
           />
           <button
             type="submit"
-            className="bg-yellow-500 text-white p-3 rounded-r-lg hover:bg-green-600 transition duration-300"
+            className="bg-yellow-500 text-white p-3 rounded-r-lg hover:bg-yellow-600 transition duration-300"
           >
             Subscribe
           </button>

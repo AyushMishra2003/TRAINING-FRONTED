@@ -20,6 +20,7 @@ import ComingSoon from './Pages/ComingSoon'
 import Product from './Pages/product/Product'
 import Form from './Pages/ContactFarmng/Form'
 import Opportunity from './Pages/Opportunity'
+import CoursesList from './Pages/Course/CoursesList'
 
 
 const App = () => {
@@ -37,6 +38,7 @@ const App = () => {
         <Route path='/denied' element={<Denied/>}></Route>
         <Route path='/login' element={<Login/>}></Route>
         <Route path='/courses' element={<CourseList/>}></Route>
+        <Route path='/coursesList' element={<CoursesList/>}></Route>
         <Route path='/shop' element={<Product/>}></Route>
         <Route path='/contactFarming' element={<Form/>}></Route>
         <Route path='/viewprofile' element={<UserProfile/>}></Route>

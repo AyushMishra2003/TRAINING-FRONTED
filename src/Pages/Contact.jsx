@@ -27,27 +27,27 @@ function Contact() {
                             <input
                                 type="text"
                                 placeholder="Your Name"
-                                className="w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-green-400"
+                                className="w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-yellow-400"
                             />
                         </div>
                         <div>
                             <input
                                 type="email"
                                 placeholder="Email"
-                                className="w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-green-400"
+                                className="w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-yellow-400"
                             />
                         </div>
                         <div>
                             <textarea
                                 placeholder="Message"
-                                className="w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-green-400"
+                                className="w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-yellow-400"
                                 rows="4"
                             ></textarea>
                         </div>
                         <div>
                             <button
                                 type="submit"
-                                className="w-full p-3 bg-yellow-500 text-white rounded-lg hover:bg-black transition ease-in-out duration-300"
+                                className="w-full p-3 bg-yellow-500 text-white rounded-lg hover:bg-yellow-400 transition ease-in-out duration-300"
                             >
                                 Submit Now
                             </button>

@@ -36,7 +36,7 @@ const Knowledge = () => {
         </p>
         <div className='flex flex-col gap-2'>
           <div className='flex items-start lg:w-[30rem] w-full gap-4'>
-            <button className='px-4 py-2 rounded-lg bg-[#FDC800] border border-[#201654] font-bold text-white flex items-center justify-center'>
+            <button className='px-4 py-2 rounded-lg bg-[#FDC800] border border-none font-bold text-white flex items-center justify-center'>
               <FaAngleRight />
             </button>
             <div className='flex flex-col gap-2 flex-1'>
@@ -45,7 +45,7 @@ const Knowledge = () => {
             </div>
           </div>
           <div className='flex items-start lg:w-[30rem] w-full gap-4'>
-            <button className='px-4 py-2 rounded-lg bg-[#FDC800] border border-[#201654] font-bold text-white flex items-center justify-center'>
+            <button className='px-4 py-2 rounded-lg border border-none bg-[#FDC800]  font-bold text-white flex items-center justify-center'>
               <FaAngleRight />
             </button>
             <div className='flex flex-col gap-2 flex-1'>
