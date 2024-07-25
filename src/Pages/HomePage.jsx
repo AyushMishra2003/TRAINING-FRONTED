@@ -34,9 +34,9 @@ function HomePage() {
                   <Knowledge />
                   <CourseCategory/>
               
-                <div className="flex flex-col items-center justify-center">
+                {/* <div className="flex flex-col items-center justify-center">
                     <Contact />
-                </div>
+                </div> */}
               
 
                 <Faq />

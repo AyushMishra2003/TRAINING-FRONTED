@@ -59,6 +59,7 @@ function HomeLayout({ children }) {
             <Link to={"/coursesDescription"}>Course Details</Link>
             <Link to="/about" className="hover:text-yellow-500">About us</Link>
             <Link to="/contact" className="hover:text-yellow-500">Contact Us</Link>
+            <Link to="/login" className="hover:text-yellow-500">Sign In</Link>
   
             
           </nav>

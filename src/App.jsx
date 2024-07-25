@@ -23,6 +23,8 @@ import Opportunity from './Pages/Opportunity'
 import CoursesList from './Pages/Course/CoursesList'
 import CourseDetails from './Pages/Course/CourseDetails'
 import ContactPage from './Pages/Contact'
+import LoginPage from './Pages/Login'
+import SignUpPage from './Pages/SignUp'
 
 
 const App = () => {
@@ -36,9 +38,9 @@ const App = () => {
       <Routes>
         <Route path='/' element={<HomePage/>}></Route>
         <Route path='/about' element={<AboutUs/>}></Route>
-        <Route path='/signup' element={<SignUp/>}></Route>
+        <Route path='/signup' element={<SignUpPage/>}></Route>
         <Route path='/denied' element={<Denied/>}></Route>
-        <Route path='/login' element={<Login/>}></Route>
+        <Route path='/login' element={<LoginPage/>}></Route>
         <Route path='/courses' element={<CourseList/>}></Route>
         <Route path='/coursesDescription' element={<CourseDetails/>}></Route>
         <Route path='/coursesList' element={<CoursesList/>}></Route>
