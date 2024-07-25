@@ -83,7 +83,7 @@ const CoursesList = () => {
 
   return (
     <HomeLayout>
-        <AllPageHeader/>
+        <AllPageHeader name={"Course"} url={"/courses"}/>
       <div className="flex flex-col lg:flex-row bg-[#FFFFFF] ">
         <aside className={`fixed lg:relative lg:w-1/4 lg:max-w-xs p-4 bg-white shadow-lg  flex flex-col  lg:gap-4 lg:shadow-none lg:bg-transparent transition-transform transform ${isFilterVisible ? 'translate-x-0' : 'translate-x-full lg:translate-x-0'} lg:translate-x-0 right-0 top-0 h-full lg:h-auto z-50 `}>
           <div className="flex justify-between items-center mb-4 lg:hidden ">

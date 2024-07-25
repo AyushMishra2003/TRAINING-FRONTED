@@ -19,7 +19,7 @@ const CourseDetails = () => {
 
   return (
     <HomeLayout>
-      <AllPageHeader />
+      <AllPageHeader name={"Coursed Details"} url={"/courseDetaial"} />
       <div className="w-full bg-white">
         <div className="container mx-auto p-4 flex flex-col lg:flex-row gap-4">
           <div className="overflow-hidden w-full lg:w-2/3">

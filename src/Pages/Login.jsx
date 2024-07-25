@@ -5,7 +5,7 @@ import AllPageHeader from './AllPageHeader/AllPageHeader';
 const LoginPage = () => {
   return (
     <HomeLayout>
-      <AllPageHeader/>
+      <AllPageHeader name={"Login"} url={"/login"}/>
     <div className="min-h-screen bg-white flex items-center justify-center p-6">
       <div className="w-full max-w-md bg-gray-100 rounded-lg shadow-md p-8">
         <div className="text-center mb-6">

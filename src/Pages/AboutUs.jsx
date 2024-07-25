@@ -9,7 +9,7 @@ import { FaCheckCircle } from 'react-icons/fa';
 const AboutUs = () => {
   return (
     <HomeLayout>
-      <AllPageHeader />
+      <AllPageHeader name={"About"} url={"/about"} />
       <div className="p-8 overflow-x-hidden bg-white">
         {/* Section 1: About Us */}
         <section className="flex flex-col lg:flex-row items-start justify-center mb-16">

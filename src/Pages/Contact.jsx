@@ -7,7 +7,7 @@ import image3 from '../assets/con1.png'
 const ContactPage = () => {
   return (
     <HomeLayout>
-        <AllPageHeader/>
+        <AllPageHeader name={"Contact"} url={"/contact"}/>
       <div className="min-h-screen bg-white p-6 md:p-12">
       <div className="container mx-auto ">
         <div className="text-center">
