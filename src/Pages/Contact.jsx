@@ -1,62 +1,109 @@
 import React from 'react';
-import contact from '../assets/contact.png';
-
-function Contact() {
-    return (
-        <div className="bg-white flex flex-col lg:flex-row justify-center items-start w-full gap-4 p-4 lg:p-8">
-            <div className='flex flex-col items-center h-fit w-full lg:w-1/2'>
-                {/* <div className="mb-4">
-                    <h2 className="text-2xl lg:text-4xl font-bold text-[#201654]">
-                        Learn At Your Own Pace, With Lifetime Access Anywhere And Any Device
-                    </h2>
-                </div> */}
-                <div className="mb-4 w-full">
-                    <img src={contact} alt="Woman reading a book" className="w-full h-auto rounded-md" />
-                </div>
-            </div>
-            <div className="flex justify-center items-center w-full lg:w-[30rem]">
-                <div className="bg-white p-6 lg:p-8 rounded-lg w-full lg:w-[30rem] max-w-md">
-                    <h2 className="text-2xl lg:text-4xl mb-4 bg-yellow-500 text-white p-4 lg:p-12 font-bold text-center rounded-t-lg">
-                        Contact Now
-                    </h2>
-                    <p className="text-gray-800 mb-6 text-center">
-                        More than 100 Courses are free for this month
-                    </p>
-                    <form className="space-y-4">
-                        <div>
-                            <input
-                                type="text"
-                                placeholder="Your Name"
-                                className="w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-yellow-400"
-                            />
-                        </div>
-                        <div>
-                            <input
-                                type="email"
-                                placeholder="Email"
-                                className="w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-yellow-400"
-                            />
-                        </div>
-                        <div>
-                            <textarea
-                                placeholder="Message"
-                                className="w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-yellow-400"
-                                rows="4"
-                            ></textarea>
-                        </div>
-                        <div>
-                            <button
-                                type="submit"
-                                className="w-full p-3 bg-yellow-500 text-white rounded-lg hover:bg-yellow-400 transition ease-in-out duration-300"
-                            >
-                                Submit Now
-                            </button>
-                        </div>
-                    </form>
-                </div>
-            </div>
+import HomeLayout from '../Layout/HomeLayout';
+import AllPageHeader from './AllPageHeader/AllPageHeader';
+import image1 from '../assets/con3.png'
+import image2 from '../assets/con2.png'
+import image3 from '../assets/con1.png'
+const ContactPage = () => {
+  return (
+    <HomeLayout>
+        <AllPageHeader/>
+      <div className="min-h-screen bg-white p-6 md:p-12">
+      <div className="container mx-auto ">
+        <div className="text-center">
+          <h2 className="text-3xl font-bold mb-8">Contact Us</h2>
         </div>
-    );
-}
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-12">
+          <div className="bg-gray-100 p-2 py-6 rounded-md text-center flex items-center justify-center gap-10">
+            <img src={image1} alt="" className='w-[5rem]' />
+            <div className="flex justify-center mb-4 items-start flex-col">
+                <p className="text-xl font-bold">Our Phone</p>
+              <p className="text-lg">000 2324 39493</p>
+            </div>
+     
+          </div>
+          <div className="bg-gray-100 p-2 rounded-md text-center  flex items-center justify-center gap-10">
+            <img src={image2} alt="" className='w-[5rem]' />
+            <div className="flex justify-center mb-4 items-start flex-col">
+                <p className="text-xl font-bold">Our Phone</p>
+              <p className="text-lg">000 2324 39493</p>
+            </div>
+     
+          </div>
+          <div className="bg-gray-100 p-2 rounded-md text-center  flex items-center justify-center gap-10">
+            <img src={image3} alt="" className='w-[5rem]' />
+            <div className="flex justify-center mb-4 items-start flex-col">
+                <p className="text-xl font-bold">Our Phone</p>
+              <p className="text-lg">000 2324 39493</p>
+            </div>
+     
+          </div>
+        </div>
+        <div className="md:flex">
+          <div className="md:w-1/2 p-6">
+            <h3 className="text-[2.5rem] font-bold mb-4">Write Us a Message</h3>
+            <p className="mb-8 text-sm leading-relaxed">
+              The quick, brown fox jumps over a lazy dog. DJs flock by when MTV ax quiz prog. Junk MTV quiz graced by fox whelps. Bawds jog.
+            </p>
+          </div>
+          <div className="md:w-1/2 p-6">
+            <form>
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-4">
+                <input
+                  type="text"
+                  placeholder="Full name"
+                  className="border border-gray-300 p-3 rounded-md w-full"
+                />
+                <input
+                  type="text"
+                  placeholder="Phone Number"
+                  className="border border-gray-300 p-3 rounded-md w-full"
+                />
+              </div>
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-4">
+                <input
+                  type="email"
+                  placeholder="Email Address"
+                  className="border border-gray-300 p-3 rounded-md w-full"
+                />
+                <input
+                  type="text"
+                  placeholder="Subject"
+                  className="border border-gray-300 p-3 rounded-md w-full"
+                />
+              </div>
+              <textarea
+                placeholder="Your Message"
+                className="border border-gray-300 p-3 rounded-md w-full h-32 mb-4"
+              />
+              <button
+                type="submit"
+                className="bg-yellow-400 text-white py-3 px-6 rounded-md"
+              >
+                Send Message
+              </button>
+            </form>
+          </div>
+        </div>
+      </div>
+      <div className=''>
+         <iframe
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3608.0369724128955!2d82.99323956088575!3d25.26934167757142!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x398e3229c5f00e51%3A0x2a17ac9898868786!2sSchool%20of%20Biotechnology%20New%20Building!5e0!3m2!1sen!2sin!4v1711779891268!5m2!1sen!2sin" 
+            width="600"
+            height="400"
+            frameborder="0"
+            style={{ border: 0 }}
+            allowfullscreen=""
+            aria-hidden="false"
+            tabindex="0"
+            className='w-[100vw]'
+                />
 
-export default Contact;
+               </div>
+
+      </div>
+    </HomeLayout>
+  );
+};
+
+export default ContactPage;
