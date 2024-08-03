@@ -4,6 +4,7 @@ import img from '../../assets/courseDetail.jpg';
 import img1 from '../../assets/courseusername.png';
 import HomeLayout from '../../Layout/HomeLayout';
 import AllPageHeader from '../AllPageHeader/AllPageHeader';
+import { useLocation } from 'react-router-dom';
 
 const CourseDetails = () => {
   const [expandedSection, setExpandedSection] = useState(null);
@@ -17,26 +18,32 @@ const CourseDetails = () => {
     setTab(tab);
   };
 
+  const location = useLocation();
+  const { course } = location.state;
+
+  console.log(course);
+  
+
   return (
     <HomeLayout>
-      <AllPageHeader name={"Coursed Details"} url={"/courseDetaial"} />
+      <AllPageHeader name={"Course Details"} url={"/courseDetail"} />
       <div className="w-full bg-white">
         <div className="container mx-auto p-4 flex flex-col lg:flex-row gap-4">
           <div className="overflow-hidden w-full lg:w-2/3">
             <div className="p-6">
-              <h1 className="text-3xl font-bold">Sales Training: Practical Sales Techniques</h1>
+              <h1 className="text-3xl font-bold">{course?.title}</h1>
               <div className="flex items-center my-4">
                 <img src={img1} alt="Josif Saturn" className="w-12 h-12 rounded-full mr-4" />
                 <div>
-                  <p className="text-gray-700">By Josif Saturn</p>
-                  <p className="text-gray-600">Categories: Business, Design, Health & Fitness</p>
+                  <p className="text-gray-700">By Ayush Mishra ji</p>
+                  <p className="text-gray-600">Categories: <span>{course?.category}</span></p>
                 </div>
               </div>
               <div className="flex items-center my-4">
                 <span className="text-yellow-500">★★★★☆</span>
                 <span className="ml-2 text-gray-600">(2 Ratings)</span>
               </div>
-              <img src={img} alt="Course" className="w-full h-64 object-cover my-4" />
+              <img src={course?.photo?.secure_url} alt="Course" className="w-full h-64 object-cover my-4" />
               <div className="bg-gray-100 p-4 rounded-lg text-center flex flex-col gap-5">
                 <h2 className="text-2xl font-bold">Free</h2>
                 <button className="bg-yellow-500 text-white px-4 py-2 rounded-lg mt-2">Enroll now</button>
@@ -59,20 +66,14 @@ const CourseDetails = () => {
                 {tab === 'courseInfo' && (
                   <div className="mt-4">
                     <h3 className="text-xl font-bold">About Course</h3>
-                    <p>Are you new to PHP or need a refresher? Then this course will help you get all the fundamentals...</p>
-                    <p>It covers the basics of PHP, including syntax, functions, and how to work with databases.</p>
-                    <p>By the end of this course, you'll be able to build dynamic web applications with PHP.</p>
-                    <p>Enroll now and start your journey to becoming a proficient PHP developer.</p>
-                    <p>Our hands-on approach ensures you gain practical experience.</p>
+                    <p>{course?.aboutCourse}</p>
                     <div className="mt-4">
                       <h3 className="text-xl font-bold">What Will You Learn?</h3>
                       <ul className="list-disc ml-6">
-                        <li>Enjoy selling by befriending customers</li>
-                        <li>Be organized and efficient</li>
-                        <li>Feel confident preparing for a sales meeting</li>
-                        <li>Close deals with confidence</li>
-                        <li>Understand the selling process and how to master it</li>
-                      </ul>
+                         {course?.whatWeLearn?.map((item, index) => (
+                            <li key={index}>{item}</li>
+                       ))}
+                     </ul>
                     </div>
                   </div>
                 )}
@@ -177,25 +178,25 @@ const CourseDetails = () => {
             <div className="bg-white shadow-md rounded-lg overflow-hidden pb-[5rem] pr-[4rem] pl-[2rem] pt-[2rem]">
               <h3 className="text-xl font-bold">Material Includes</h3>
               <ul className="list-disc ml-6">
-                <li>10 hours of video content</li>
-                <li>Access to course materials</li>
-                <li>Certificate of completion</li>
+                {course?.MaterialIncludes?.map((item, index) => (
+                  <li key={index}>{item}</li>
+                ))}
               </ul>
             </div>
             <div className="bg-white shadow-md rounded-lg overflow-hidden pb-[5rem] pr-[4rem] pl-[2rem] pt-[2rem]">
               <h3 className="text-xl font-bold">Requirements</h3>
               <ul className="list-disc ml-6">
-                <li>Basic understanding of sales</li>
-                <li>Access to a computer</li>
-                <li>Internet connection</li>
+                {course?.Requirements?.map((item, index) => (
+                  <li key={index}>{item}</li>
+                ))}
               </ul>
             </div>
             <div className="bg-white shadow-md rounded-lg overflow-hidden pb-[5rem] pr-[3rem] pl-[2rem] pt-[2rem]">
               <h3 className="text-xl font-bold">Audience</h3>
               <ul className="list-disc ml-6">
-                <li>New salespeople</li>
-                <li>Experienced sales professionals</li>
-                <li>Anyone interested in sales</li>
+                {course?.Audience?.map((item, index) => (
+                  <li key={index}>{item}</li>
+                ))}
               </ul>
             </div>
           </div>

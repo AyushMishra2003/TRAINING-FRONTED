@@ -1,83 +1,89 @@
-import { createAsyncThunk, createSlice } from "@reduxjs/toolkit"
-import toast from "react-hot-toast"
-import axiosInstance from "../../Helper/axiosInstance"
-
-
+import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
+import axiosInstance from "../../Helper/axiosInstance";
 
 const initialState = {
-  courseData: []
-}
+  courseData: [],
+  loading: false,
+  error: null
+};
 
-export const getAllCourse = createAsyncThunk("/course/get", async () => {
-
+export const getAllCourse = createAsyncThunk("/course", async (_, { rejectWithValue }) => {
   try {
-    const response = axiosInstance.get("/courses")
-
-    toast.promise(response, {
-      loading: "loading course data...",
-      success: "courses loaded succesfully",
-      error: "failed to get the courses"
-    })
-    return (await response).data.data
+    const response = await axiosInstance.get("/course");
+    return response.data.data;
   } catch (error) {
-    toast.error(error?.response?.data?.message)
+    return rejectWithValue(error.response.data.message);
   }
-})
+});
 
-
-export const createNewCourse = createAsyncThunk("/course/create", async (data) => {
+export const createNewCourse = createAsyncThunk("/course/create", async (data, { rejectWithValue }) => {
   try {
-    let formData = new FormData()
-    formData.append("title", data?.title)
-    formData.append("description", data?.description)
-    formData.append("category", data?.category)
-    formData.append("createdBy", data?.createdBy)
-    formData.append("thumbnail", data?.thumbnail)
+    let formData = new FormData();
+    formData.append("title", data?.title);
+    formData.append("description", data?.description);
+    formData.append("category", data?.category);
+    formData.append("createdBy", data?.createdBy);
+    formData.append("thumbnail", data?.thumbnail);
 
-    const response = axiosInstance.post("/courses", formData)
-
-
-    toast.promise(response, {
-      loading: "creating new Course",
-      success: "Course created Successfull",
-      error: "failed to create course"
-    })
-
-    return (await response).data
-
+    const response = await axiosInstance.post("/courses", formData);
+    return response.data;
   } catch (error) {
-    toast.error(error.response.data.message)
+    return rejectWithValue(error.response.data.message);
   }
-})
+});
 
-export const deleteCourse = createAsyncThunk("/course/delete", async (cid) => {
+export const deleteCourse = createAsyncThunk("/course/delete", async (cid, { rejectWithValue }) => {
   try {
-    const response = axiosInstance.delete(`/courses/${cid}`)
-    toast.promise(response, {
-      loading: "deleting course lectures",
-      success: "Lecture delete sucessfully",
-      error: "Failed to delete the lectures"
-    })
-    return (await response).data
-    // console.log("hyyy ");
+    const response = await axiosInstance.delete(`/courses/${cid}`);
+    return response.data;
   } catch (error) {
-    toast.error(error.response.data.message)
+    return rejectWithValue(error.response.data.message);
   }
-})
-
+});
 
 const courseSlice = createSlice({
   name: "courses",
   initialState,
   reducers: {},
   extraReducers: (builder) => {
-    builder.addCase(getAllCourse.fulfilled, (state, action) => {
-      console.log(action);
-      if (action.payload) {
-        state.courseData = [...action.payload]
-      }
-    })
+    builder
+      .addCase(getAllCourse.pending, (state) => {
+        state.loading = true;
+        state.error = null;
+      })
+      .addCase(getAllCourse.fulfilled, (state, action) => {
+        state.loading = false;
+        state.courseData = action.payload;
+      })
+      .addCase(getAllCourse.rejected, (state, action) => {
+        state.loading = false;
+        state.error = action.payload;
+      })
+      .addCase(createNewCourse.pending, (state) => {
+        state.loading = true;
+        state.error = null;
+      })
+      .addCase(createNewCourse.fulfilled, (state, action) => {
+        state.loading = false;
+        state.courseData.push(action.payload);
+      })
+      .addCase(createNewCourse.rejected, (state, action) => {
+        state.loading = false;
+        state.error = action.payload;
+      })
+      .addCase(deleteCourse.pending, (state) => {
+        state.loading = true;
+        state.error = null;
+      })
+      .addCase(deleteCourse.fulfilled, (state, action) => {
+        state.loading = false;
+        state.courseData = state.courseData.filter(course => course.id !== action.meta.arg);
+      })
+      .addCase(deleteCourse.rejected, (state, action) => {
+        state.loading = false;
+        state.error = action.payload;
+      });
   }
-})
+});
 
-export default courseSlice.reducer
+export default courseSlice.reducer;

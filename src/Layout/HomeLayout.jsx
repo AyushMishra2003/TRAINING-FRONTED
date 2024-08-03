@@ -56,10 +56,10 @@ function HomeLayout({ children }) {
           <nav className="hidden lg:flex space-x-6">
             <Link to="/" className="hover:text-yellow-500">Home</Link>
             <Link to="/coursesList" className="hover:text-yellow-500">Courses</Link>
-            <Link to={"/coursesDescription"}>Course Details</Link>
+            <Link to={"/enroll"}>Enroll</Link>
             <Link to="/about" className="hover:text-yellow-500">About us</Link>
             <Link to="/contact" className="hover:text-yellow-500">Contact Us</Link>
-            <Link to="/login" className="hover:text-yellow-500">Sign In</Link>
+
   
             
           </nav>
@@ -91,18 +91,11 @@ function HomeLayout({ children }) {
           <AiFillCloseCircle size={32} className="cursor-pointer text-black absolute top-4 right-4" onClick={toggleMenu} />
           <ul className="menu mt-12">
             <li>
-              <Link to="/" onClick={toggleMenu}>Home</Link>
-            </li>
-            <li>
-              <Link to="/coursesList" onClick={toggleMenu}>All courses</Link>
-            </li>
-            <li>
-              <Link to="/contactFarming" onClick={toggleMenu}>Contract Farming</Link>
-            </li>
-            <li>
-              <Link to="/shop" onClick={toggleMenu}>Shop</Link>
-            </li>
-            <li>
+              <Link to="/" className="hover:text-yellow-500">Home</Link>
+              <Link to="/coursesList" className="hover:text-yellow-500">Courses</Link>
+            <Link to={"/coursesDescription"}>Course Details</Link>
+            <Link to="/about" className="hover:text-yellow-500">About us</Link>
+              <Link to="/contact" className="hover:text-yellow-500">Contact Us</Link>
               <Link to="/opportunity" onClick={toggleMenu}>Opportunity</Link>
             </li>
             {isLoggedIn && role === 'ADMIN' && (

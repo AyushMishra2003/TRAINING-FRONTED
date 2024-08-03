@@ -1,66 +1,12 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { FaFilter, FaTimes } from 'react-icons/fa';
-import img from '../../assets/courses.jpg';
 import HomeLayout from '../../Layout/HomeLayout';
 import AllPageHeader from '../AllPageHeader/AllPageHeader';
-
-const courses = [
-  {
-    image: img,
-    title: 'WordPress for Beginners – Master WordPress',
-    users: 2,
-    duration: '7h 30m',
-    instructor: 'Janusz Yuda',
-    category: 'Business, Design, Development, Marketing',
-    price: 'Free',
-  },
-  {
-    image: img,
-    title: 'WordPress for Beginners – Master WordPress',
-    users: 2,
-    duration: '7h 30m',
-    instructor: 'Janusz Yuda',
-    category: 'Business, Design, Development, Marketing',
-    price: 'Free',
-  },
-  {
-    image: img,
-    title: 'WordPress for Beginners – Master WordPress',
-    users: 2,
-    duration: '7h 30m',
-    instructor: 'Janusz Yuda',
-    category: 'Business, Design, Development, Marketing',
-    price: 'Free',
-  },
-  {
-    image: img,
-    title: 'WordPress for Beginners – Master WordPress',
-    users: 2,
-    duration: '7h 30m',
-    instructor: 'Janusz Yuda',
-    category: 'Business, Design, Development, Marketing',
-    price: 'Free',
-  },
-  {
-    image: img,
-    title: 'WordPress for Beginners – Master WordPress',
-    users: 2,
-    duration: '7h 30m',
-    instructor: 'Janusz Yuda',
-    category: 'Business, Design, Development, Marketing',
-    price: 'Free',
-  },
-  {
-    image: img,
-    title: 'WordPress for Beginners – Master WordPress',
-    users: 2,
-    duration: '7h 30m',
-    instructor: 'Janusz Yuda',
-    category: 'Business, Design, Development, Marketing',
-    price: 'Free',
-  },
-  // Add more courses as needed
-];
+import CourseCard from './CourseCard';
+import CourseCardSkeleton from './CourseSkeleton';
+import CourseEmpty from './CourseEmpty';
+import { useDispatch, useSelector } from 'react-redux';
+import { getAllCourse } from '../../Redux/Slices/CourseSlice';
 
 const CoursesList = () => {
   const [selectedCategory, setSelectedCategory] = useState('');
@@ -69,6 +15,8 @@ const CoursesList = () => {
   const [selectedPrice, setSelectedPrice] = useState('');
   const [isFilterVisible, setIsFilterVisible] = useState(false);
   const [searchTerm, setSearchTerm] = useState('');
+  const [currentPage, setCurrentPage] = useState(1);
+  const coursesPerPage = 6;
 
   const clearFilters = () => {
     setSelectedCategory('');
@@ -77,88 +25,112 @@ const CoursesList = () => {
     setSelectedPrice('');
   };
 
-  const filteredCourses = courses.filter(course =>
-    course.title.toLowerCase().includes(searchTerm.toLowerCase())
-  ); // Add your filter logic here
+  const dispatch = useDispatch();
+  const { courseData, loading } = useSelector((state) => state.course);
+
+  useEffect(() => {
+    dispatch(getAllCourse());
+  }, [dispatch]);
+
+  // Filter courses based on search and filters
+  const filteredCourses = courseData
+    .filter(course =>
+      course.title.toLowerCase().includes(searchTerm.toLowerCase())
+    )
+    .filter(course =>
+      (!selectedCategory || course.category === selectedCategory) &&
+      (!selectedTag || course.tag === selectedTag) &&
+      (!selectedLevel || course.level === selectedLevel) &&
+      (!selectedPrice || course.price === selectedPrice)
+    );
+
+  // Pagination logic
+  const indexOfLastCourse = currentPage * coursesPerPage;
+  const indexOfFirstCourse = indexOfLastCourse - coursesPerPage;
+  const currentCourses = filteredCourses.slice(indexOfFirstCourse, indexOfLastCourse);
+  const totalPages = Math.ceil(filteredCourses.length / coursesPerPage);
 
   return (
     <HomeLayout>
-        <AllPageHeader name={"Course"} url={"/courses"}/>
+      <AllPageHeader name={"Course"} url={"/courses"} />
       <div className="flex flex-col lg:flex-row bg-[#FFFFFF] ">
-        <aside className={`fixed lg:relative lg:w-1/4 lg:max-w-xs p-4 bg-white shadow-lg  flex flex-col  lg:gap-4 lg:shadow-none lg:bg-transparent transition-transform transform ${isFilterVisible ? 'translate-x-0' : 'translate-x-full lg:translate-x-0'} lg:translate-x-0 right-0 top-0 h-full lg:h-auto z-50 `}>
+        <aside className={`fixed lg:relative lg:w-1/4 lg:max-w-xs p-4 bg-white shadow-lg flex flex-col lg:gap-4 lg:shadow-none lg:bg-transparent transition-transform transform ${isFilterVisible ? 'translate-x-0' : 'translate-x-full lg:translate-x-0'} lg:translate-x-0 right-0 top-0 h-full lg:h-auto z-50 `}>
           <div className="flex justify-between items-center mb-4 lg:hidden ">
             <h2 className="text-xl font-bold">Filters</h2>
             <button onClick={() => setIsFilterVisible(false)}>
               <FaTimes className="text-xl" />
             </button>
           </div>
-          <div className=''>
-            <h3 className="font-semibold ">Category</h3>
+          {/* Filter sections */}
+          <div>
+            <h3 className="font-semibold">Category</h3>
             <div className="space-y-2">
               {['Business', 'Design', 'Development'].map((category) => (
                 <label key={category} className="flex items-center">
                   <input
                     type="checkbox"
                     checked={selectedCategory === category}
-                    onChange={() => setSelectedCategory(category)}
+                    onChange={() => setSelectedCategory(prev => prev === category ? '' : category)}
                     className="form-checkbox"
                   />
-                  <span className="">{category}</span>
+                  <span className="ml-2">{category}</span>
                 </label>
               ))}
             </div>
           </div>
           <div>
-            <h3 className="font-semibold ">Tags</h3>
+            <h3 className="font-semibold">Tags</h3>
             <div className="space-y-2">
               {['Adobe XD', 'Graphic Design', 'Health & Fitness', 'Illustrations'].map((tag) => (
                 <label key={tag} className="flex items-center">
                   <input
                     type="checkbox"
                     checked={selectedTag === tag}
-                    onChange={() => setSelectedTag(tag)}
+                    onChange={() => setSelectedTag(prev => prev === tag ? '' : tag)}
                     className="form-checkbox"
                   />
-                  <span className="">{tag}</span>
+                  <span className="ml-2">{tag}</span>
                 </label>
               ))}
             </div>
           </div>
           <div>
-            <h3 className="font-semibold ">Level</h3>
+            <h3 className="font-semibold">Level</h3>
             <div className="space-y-2">
-              {['All Levels', 'Beginner', 'Intermediate'].map((level) => (
+              {['AllLevels', 'Beginner', 'Intermediate'].map((level) => (
                 <label key={level} className="flex items-center">
                   <input
-                    type="checkbox"
+                    type="radio"
+                    name="level"
                     checked={selectedLevel === level}
-                    onChange={() => setSelectedLevel(level)}
-                    className="form-checkbox"
+                    onChange={() => setSelectedLevel(prev => prev === level ? '' : level)}
+                    className="form-radio"
                   />
-                  <span className="">{level}</span>
+                  <span className="ml-2">{level}</span>
                 </label>
               ))}
             </div>
           </div>
           <div>
-            <h3 className="font-semibold ">Price</h3>
+            <h3 className="font-semibold">Price</h3>
             <div className="space-y-2">
               {['Free', 'Paid'].map((price) => (
                 <label key={price} className="flex items-center">
                   <input
-                    type="checkbox"
+                    type="radio"
+                    name="price"
                     checked={selectedPrice === price}
-                    onChange={() => setSelectedPrice(price)}
-                    className="form-checkbox"
+                    onChange={() => setSelectedPrice(prev => prev === price ? '' : price)}
+                    className="form-radio"
                   />
-                  <span className="">{price}</span>
+                  <span className="ml-2">{price}</span>
                 </label>
               ))}
             </div>
           </div>
           <button
             onClick={clearFilters}
-            className=" border-[#FED952] border  text-[#FED952] font-se hover:bg-[#FED953]  hover:text-white px-6 py-2 rounded-full"
+            className="border-[#FED952] border text-[#FED952] font-se hover:bg-[#FED953] hover:text-white px-6 py-2 rounded-full mt-4"
           >
             Clear Filters
           </button>
@@ -186,27 +158,38 @@ const CoursesList = () => {
             </div>
           </div>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
-            {filteredCourses.map((course, index) => (
-              <div key={index} className="border rounded-lg p-4 flex flex-col">
-                <img src={course.image} alt={course.title} className="w-full h-32 object-cover rounded-md mb-4" />
-                <h2 className="text-xl font-bold mb-2">{course.title}</h2>
-                <p className="text-gray-600 mb-2">By {course.instructor}</p>
-                <div className="flex justify-between items-center mb-2">
-                  <span className="text-gray-600">{course.users} users</span>
-                  <span className="text-gray-600">{course.duration}</span>
-                </div>
-                <span className="text-lg font-bold mb-2">{course.price}</span>
-                  <button className="mt-2 border border-[#FED952] text-[#FED952] duration-300 hover:text-[#fff] font-bold px-4 py-2 rounded hover:bg-[#FED952] ">Enroll Now</button>
-          
-              </div>
-            ))}
+            {loading
+              ? [...Array(coursesPerPage)].map((_, index) => <CourseCardSkeleton key={index} />)
+              : filteredCourses.length === 0
+              ? <CourseEmpty />
+              : currentCourses.map((course, index) => (
+                  <CourseCard key={index} course={course} />
+                ))}
           </div>
           <div className="flex justify-center mt-8">
-            <button className="px-4 py-2 border rounded-lg mx-1">Previous</button>
-            <button className="px-4 py-2 border rounded-lg mx-1">1</button>
-            <button className="px-4 py-2 border rounded-lg mx-1">2</button>
-            <button className="px-4 py-2 border rounded-lg mx-1">3</button>
-            <button className="px-4 py-2 border rounded-lg mx-1">Next</button>
+            <button
+              onClick={() => setCurrentPage((prevPage) => Math.max(prevPage - 1, 1))}
+              className="px-4 py-2 border rounded-lg mx-1"
+              disabled={currentPage === 1}
+            >
+              Previous
+            </button>
+            {Array.from({ length: totalPages }, (_, i) => (
+              <button
+                key={i}
+                onClick={() => setCurrentPage(i + 1)}
+                className={`px-4 py-2 border rounded-lg mx-1 ${currentPage === i + 1 ? 'bg-yellow-500 text-white' : ''}`}
+              >
+                {i + 1}
+              </button>
+            ))}
+            <button
+              onClick={() => setCurrentPage((prevPage) => Math.min(prevPage + 1, totalPages))}
+              className="px-4 py-2 border rounded-lg mx-1"
+              disabled={currentPage === totalPages}
+            >
+              Next
+            </button>
           </div>
         </main>
       </div>

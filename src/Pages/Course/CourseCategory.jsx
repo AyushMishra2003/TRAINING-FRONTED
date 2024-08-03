@@ -1,102 +1,64 @@
-import React, { useState } from "react";
-import { FaStar } from "react-icons/fa";
-import img from '../../assets/coursephoto.jpg';
-import userphoto from '../../assets/courseusername.png';
-
-// Sample placeholder course data
-const demoCourses = [
-  {
-    image: img,
-    logo: userphoto,
-    teacher: "Doris Jordan",
-    title: "User Experience Design Essentials Online 2024",
-    rating: 4.0,
-    reviews: 1,
-  },
-  {
-    image: img,
-    logo: userphoto,
-    teacher: "Jaction Leo",
-    title: "Because Millions of websites and applications use PHP",
-    rating: 4.5,
-    reviews: 2,
-  },
-  {
-    image: img,
-    logo: userphoto,
-    teacher: "Doris Jordan",
-    title: "Complete Refresher Financial Analyst Course",
-    rating: 4.0,
-    reviews: 2,
-  },
-  {
-    image: img,
-    logo: userphoto,
-    teacher: "John Doe",
-    title: "Introduction to Machine Learning",
-    rating: 4.3,
-    reviews: 3,
-  },
-  {
-    image: img,
-    logo: userphoto,
-    teacher: "Jane Smith",
-    title: "Advanced React and Redux",
-    rating: 4.8,
-    reviews: 5,
-  },
-  {
-    image: img,
-    logo: userphoto,
-    teacher: "Alice Brown",
-    title: "Mastering Python for Data Science",
-    rating: 4.7,
-    reviews: 4,
-  },
-];
-
-const CourseCard = ({ course }) => (
-  <div className="bg-white shadow-md rounded-lg overflow-hidden">
-    <img src={course.image} alt={course.title} className="w-full h-48 object-cover" />
-    <div className="p-4">
-      <div className="flex items-center mb-2">
-        <img src={course.logo} alt={course.teacher} className="w-8 h-8 rounded-full mr-2" />
-        <span className="font-medium text-gray-800">{course.teacher}</span>
-      </div>
-      <h3 className="font-bold text-lg text-gray-900 mb-2">{course.title}</h3>
-      <div className="flex items-center mb-4">
-        {[...Array(5)].map((_, index) => (
-          <FaStar key={index} className={`mr-1 ${index < course.rating ? 'text-yellow-500' : 'text-gray-300'}`} />
-        ))}
-        <span className="text-gray-600">({course.reviews})</span>
-      </div>
-      <button className="hover:bg-yellow-500 border border-yellow-500 text-yellow-500 hover:text-white duration-300 font-semibold py-2 px-4 rounded">Enroll Course</button>
-    </div>
-  </div>
-);
+import React, { useEffect, useState } from "react";
+import CourseCard from "./CourseCard";
+import CourseCardSkeleton from "./CourseSkeleton";
+import { useDispatch, useSelector } from "react-redux";
+import { getAllCourse } from "../../Redux/Slices/CourseSlice";
+import { Link } from "react-router-dom";
 
 const CourseCategory = () => {
-  const [selectedCategory, setSelectedCategory] = useState("development");
+  const [selectedCategory, setSelectedCategory] = useState("Business");
+  const [visibleCourses, setVisibleCourses] = useState(6); // State to manage number of visible courses
+  const dispatch = useDispatch();
+  const { courseData, loading } = useSelector((state) => state.course);
+
+  useEffect(() => {
+    dispatch(getAllCourse());
+  }, [dispatch]);
+
+  // Filter courses based on the selected category
+  const filteredCourses = courseData.filter(course => course.category === selectedCategory);
+
+  // Set of unique categories based on the course data
+  const categories = ["Business", "Design", "Development"];
+
+  // Handler to show more courses
+  const handleShowMore = () => {
+    setVisibleCourses(prevCount => prevCount + 6); // Show 6 more courses on each click
+  };
 
   return (
     <div className="container mx-auto p-4 flex flex-col gap-8">
       <h1 className="text-4xl text-[#201654] text-center font-bold">Top Featured Courses</h1>
       <div className="flex justify-center flex-wrap gap-4 mb-8">
-        {["development", "healthFitness", "marketing", "photography"].map((category) => (
+        {categories.map((category) => (
           <button
             key={category}
-            onClick={() => setSelectedCategory(category)}
+            onClick={() => { setSelectedCategory(category); setVisibleCourses(6); }} // Reset visible courses on category change
             className={`py-2 px-4 rounded-full ${selectedCategory === category ? "bg-yellow-500 text-black font-semibold" : "bg-gray-200 text-black font-semibold"}`}
           >
-            {category.charAt(0).toUpperCase() + category.slice(1).replace(/([A-Z])/g, ' $1')}
+            {category}
           </button>
         ))}
       </div>
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
-        {demoCourses.map((course, index) => (
-          <CourseCard key={index} course={course} />
-        ))}
+        {loading
+          ? [...Array(6)].map((_, index) => <CourseCardSkeleton key={index} />)
+          : filteredCourses.length > 0
+            ? filteredCourses.slice(0, visibleCourses).map((course, index) => (
+                <CourseCard key={index} course={course} />
+              ))
+            : <p className="text-center text-gray-500">No courses available for this category.</p>
+        }
       </div>
+      {/* {filteredCourses.length > visibleCourses && ( */}
+        <div className="flex justify-center mt-4">
+          <Link 
+             to={"/coursesList"}
+            className="py-2 px-4 bg-yellow-500 text-black font-semibold rounded-full">
+            View More
+          </Link>
+        </div>
+      {/* )} */}
     </div>
   );
 };

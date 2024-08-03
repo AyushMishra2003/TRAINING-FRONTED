@@ -12,6 +12,11 @@ body{
   /* background-color:red; */
   overflow-x: hidden;
   background-color: #F0F4F9;
+  color: black;
+}
+
+input{
+  background-color: white;
 }
 
 

@@ -9,7 +9,7 @@ const AllPageHeader = ({name,url}) => {
   >
     <div className="absolute inset-0 bg-black bg-opacity-50 backdrop-blur-sm"></div>
     <div className="relative z-10 flex flex-col items-center">
-      <h1 className="text-4xl font-bold">{name}</h1>
+      <h1 className="text-4xl font-bold text-center">{name}</h1>
       <nav className="mt-2">
         <ul className="flex space-x-2">
           <Link to={"/"}><li>Home</li></Link>
