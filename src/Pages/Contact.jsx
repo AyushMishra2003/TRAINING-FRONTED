@@ -96,7 +96,7 @@ const ContactPage = () => {
             allowfullscreen=""
             aria-hidden="false"
             tabindex="0"
-            className='w-[100vw]'
+            className='w-[90vw]'
                 />
 
                </div>

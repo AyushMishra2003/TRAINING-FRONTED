@@ -2,6 +2,9 @@ import React, { useState } from 'react';
 import { FaEye, FaEyeSlash } from 'react-icons/fa';
 import HomeLayout from '../Layout/HomeLayout';
 import AllPageHeader from './AllPageHeader/AllPageHeader';
+import { useDispatch } from 'react-redux';
+import { createAccount } from '../Redux/Slices/AuthSlice';
+import { useNavigate } from 'react-router-dom';
 
 const SignUpPage = () => {
   const [formData, setFormData] = useState({
@@ -15,15 +18,33 @@ const SignUpPage = () => {
 
   const [showPassword, setShowPassword] = useState(false);
 
+  const dispatch=useDispatch()
+  const navigate=useNavigate()
+
   const handleChange = (e) => {
     const { name, value } = e.target;
     setFormData({ ...formData, [name]: value });
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async(e) => {
     e.preventDefault();
-    // Handle form submission here
-    console.log('Form data:', formData);
+    const response=await dispatch(createAccount(formData))
+
+    console.log(response);
+    if(response?.payload){
+      setFormData({
+          name: '',
+          email: '',
+          password: '',
+          phoneNumber: '',
+          gender: '',
+         whatsappNumber: ''
+      })
+      navigate("/login")
+      
+    }
+    
+
   };
 
   const togglePasswordVisibility = () => {
